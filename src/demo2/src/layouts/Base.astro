@@ -1,0 +1,165 @@
+---
+import '../styles/global.css';
+import { hotel, nav } from '../data/hotel';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/img/slide/slide_01.jpg" />
+    <meta name="theme-color" content="#0b0908" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Noto+Serif+JP:wght@300;400;600&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Hotel',
+        name: hotel.name,
+        telephone: hotel.tel,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: '東野田町4-12-8',
+          addressLocality: '大阪市都島区',
+          addressRegion: '大阪府',
+          addressCountry: 'JP',
+        },
+      })}
+    />
+  </head>
+
+  <body>
+    <header
+      id="siteHeader"
+      class="fixed inset-x-0 top-0 z-50 transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+    >
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-10 md:py-6">
+        <a href="/" class="group flex flex-col leading-none">
+          <span class="font-display text-2xl tracking-[0.3em] text-cream md:text-3xl">REDISY</span>
+          <span class="mt-1 text-[10px] tracking-[0.4em] text-gold">KYOBASHI OSAKA</span>
+        </a>
+
+        <nav class="hidden items-center gap-8 lg:flex">
+          {
+            nav.map((item) => (
+              <a href={item.href} class="group flex flex-col items-center gap-1">
+                <span class="text-sm text-cream/90 transition-colors group-hover:text-gold">
+                  {item.label}
+                </span>
+                <span class="font-display text-[9px] tracking-[0.25em] text-muted">
+                  {item.labelEn}
+                </span>
+              </a>
+            ))
+          }
+        </nav>
+
+        <a
+          href={hotel.telHref}
+          class="flex items-center gap-2 border border-gold/50 px-4 py-2.5 text-sm tracking-wider text-gold transition-colors hover:bg-gold hover:text-ink md:px-6"
+        >
+          <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+            ></path>
+          </svg>
+          <span class="hidden font-display text-base tracking-widest sm:inline">{hotel.tel}</span>
+          <span class="sm:hidden">電話</span>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="border-t border-line bg-ink-soft">
+      <div class="mx-auto max-w-7xl px-5 py-16 md:px-10 md:py-20">
+        <div class="grid gap-12 md:grid-cols-[1.2fr_1fr]">
+          <div>
+            <p class="font-display text-3xl tracking-[0.3em] text-cream">REDISY</p>
+            <p class="mt-2 text-xs tracking-[0.35em] text-gold">KYOBASHI OSAKA</p>
+            <p class="mt-8 text-sm leading-relaxed text-muted">
+              {hotel.address}
+            </p>
+            <a
+              href={hotel.telHref}
+              class="mt-4 inline-block font-display text-4xl tracking-widest text-cream transition-colors hover:text-gold"
+            >
+              {hotel.tel}
+            </a>
+          </div>
+
+          <div class="grid grid-cols-2 gap-x-6 gap-y-4">
+            {
+              nav.map((item) => (
+                <a href={item.href} class="text-sm text-muted transition-colors hover:text-gold">
+                  {item.label}
+                </a>
+              ))
+            }
+            <a href="/sightseeing" class="text-sm text-muted transition-colors hover:text-gold">
+              周辺観光
+            </a>
+            <a href="/hotel-list" class="text-sm text-muted transition-colors hover:text-gold">
+              グループホテル
+            </a>
+            <a href="/recruit" class="text-sm text-muted transition-colors hover:text-gold">
+              求人情報
+            </a>
+          </div>
+        </div>
+
+        <p class="mt-16 text-center text-xs tracking-widest text-muted/60">
+          &copy; {new Date().getFullYear()} {hotel.name}
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // スクロールでヘッダーに背景を敷く
+      const header = document.getElementById('siteHeader');
+      const onScroll = () => {
+        header?.classList.toggle('bg-ink/90', window.scrollY > 40);
+        header?.classList.toggle('backdrop-blur-md', window.scrollY > 40);
+        header?.classList.toggle('border-b', window.scrollY > 40);
+        header?.classList.toggle('border-line', window.scrollY > 40);
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // 視界に入った要素をフェードイン
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-in');
+              io.unobserve(entry.target);
+            }
+          }
+        },
+        { rootMargin: '0px 0px -12% 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+@import 'tailwindcss';
+
+@theme {
+  /* 夜の落ち着き。ラブホ特有のギラつきを避け、シティホテル寄りの上質さを狙う */
+  --color-ink: #0b0908;
+  --color-ink-soft: #141010;
+  --color-ink-card: #1b1614;
+  --color-line: #2e2724;
+  --color-gold: #c8a96a;
+  --color-gold-dim: #8f7643;
+  --color-cream: #f4efe8;
+  --color-muted: #a1968a;
+
+  --font-serif: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+  --font-sans: 'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif;
+  --font-display: 'Cormorant Garamond', 'Noto Serif JP', serif;
+
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-cream);
+    font-family: var(--font-sans);
+    font-feature-settings: 'palt';
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-ink);
+  }
+}
+
+@layer components {
+  /* セクション見出し: 英字を小さく添えて和文を主役に */
+  .eyebrow {
+    font-family: var(--font-display);
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    font-size: 0.75rem;
+  }
+
+  .rule {
+    height: 1px;
+    background: linear-gradient(to right, var(--color-gold-dim), transparent);
+  }
+}
+
+/* ヒーロー: 4枚をゆっくりクロスフェード + わずかに寄る */
+.slide {
+  animation: slideFade 32s infinite var(--ease-out-soft);
+  opacity: 0;
+}
+.slide > img {
+  animation: kenburns 32s infinite linear;
+}
+
+@keyframes slideFade {
+  0%,
+  20% {
+    opacity: 1;
+  }
+  27%,
+  93% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes kenburns {
+  0% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1.14);
+  }
+}
+
+/* スクロールで浮かび上がる */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.9s var(--ease-out-soft),
+    transform 0.9s var(--ease-out-soft);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide,
+  .slide > img {
+    animation: none;
+  }
+  .slide:first-child {
+    opacity: 1;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
