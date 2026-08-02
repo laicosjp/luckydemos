@@ -222,12 +222,6 @@ const faqs = [
 						<h1>ふたりの時間を、<br /><em>もっと自由に。</em></h1>
 						<p class="hero__lead">日常を少しだけ離れて。誰にも急かされない、<br />ふたりだけの心ほどける時間をお過ごしください。</p>
 
-						<ul class="hero__points" aria-label="ホテルの特徴">
-							<li>駅から車で3分</li>
-							<li>駐車場60台</li>
-							<li>24時間利用OK</li>
-						</ul>
-
 						<div class="hero__rates">
 							<div><span>REST</span><strong>2,980<small>円〜</small></strong></div>
 							<div><span>STAY</span><strong>6,480<small>円〜</small></strong></div>
@@ -240,10 +234,7 @@ const faqs = [
 					</div>
 				</div>
 
-				<a class="hero__scroll" href="#campaigns">
-					<span>SCROLL</span>
-					<i aria-hidden="true"></i>
-				</a>
+
 			</section>
 
 			<section class="campaigns section section--compact" id="campaigns">
@@ -299,12 +290,12 @@ const faqs = [
 							<article class="room-card">
 								<div class="room-card__image">
 									<img src={room.image} alt={`${room.name}の客室`} loading="lazy" />
-									<span>{room.rank}</span>
+
 								</div>
 								<div class="room-card__body">
 									<div class="room-card__title">
 										<div><span>ROOM {room.number}</span><h3>{room.name}</h3></div>
-										<span class="room-card__arrow" aria-hidden="true">↗</span>
+
 									</div>
 									<ul>{room.tags.map((tag) => <li>{tag}</li>)}</ul>
 									<div class="room-card__price">
@@ -1067,14 +1058,7 @@ const faqs = [
 	}
 
 	.campaign-card::after {
-		position: absolute;
-		right: -27px;
-		bottom: -45px;
-		width: 145px;
-		height: 145px;
-		border: 25px solid rgba(255, 255, 255, 0.65);
-		border-radius: 50%;
-		content: '';
+		display: none;
 	}
 
 	.campaign-card--yellow {
