@@ -95,10 +95,34 @@ const facilities = [
 ];
 
 const flowSteps = [
-	{ number: '01', title: 'ご来店', text: '駐車場に車を停め、そのままエントランスへ。' },
-	{ number: '02', title: 'お部屋を選ぶ', text: 'ロビーのパネルからお好みのお部屋を選択。' },
-	{ number: '03', title: 'ご入室', text: '発行されたキーでお部屋へ。人目を気にせずスムーズ。' },
-	{ number: '04', title: 'ご精算', text: 'お帰りの際に自動精算機でお支払いください。' },
+	{
+		number: '01',
+		title: 'ご来店',
+		text: '駐車場に車を停め、そのままエントランスへ。',
+		image: imageUrl('photo-1566073771259-6a8506099945', 640),
+		imageAlt: 'ホテルのエントランスイメージ',
+	},
+	{
+		number: '02',
+		title: 'お部屋を選ぶ',
+		text: 'ロビーのパネルからお好みのお部屋を選択。',
+		image: imageUrl('photo-1564501049412-61c2a3083791', 640),
+		imageAlt: 'お部屋選びのイメージ',
+	},
+	{
+		number: '03',
+		title: 'ご入室',
+		text: '発行されたキーでお部屋へ。人目を気にせずスムーズ。',
+		image: imageUrl('photo-1590490360182-c33d57733427', 640),
+		imageAlt: 'ホテル客室のイメージ',
+	},
+	{
+		number: '04',
+		title: 'ご精算',
+		text: 'お帰りの際に自動精算機でお支払いください。',
+		image: imageUrl('photo-1556742049-0cfed4f6a45d', 640),
+		imageAlt: 'キャッシュレス決済のイメージ',
+	},
 ];
 
 const benefits = [
@@ -380,7 +404,7 @@ const faqs = [
 						{flowSteps.map((step) => (
 							<li>
 								<span class="flow-list__number">{step.number}</span>
-								<div class="flow-list__icon" aria-hidden="true"></div>
+								<img class="flow-list__image" src={step.image} alt={step.imageAlt} loading="lazy" />
 								<h3>{step.title}</h3>
 								<p>{step.text}</p>
 							</li>
@@ -1537,37 +1561,12 @@ const faqs = [
 		font-size: 18px;
 	}
 
-	.flow-list__icon {
-		position: relative;
-		width: 76px;
-		height: 76px;
+	.flow-list__image {
+		width: 100%;
+		height: 120px;
 		margin: 18px auto 22px;
-		border-radius: 50%;
-		background: var(--pink-soft);
-	}
-
-	.flow-list__icon::before,
-	.flow-list__icon::after {
-		position: absolute;
-		content: '';
-	}
-
-	.flow-list__icon::before {
-		top: 23px;
-		left: 24px;
-		width: 27px;
-		height: 19px;
-		border: 2px solid var(--pink);
-		border-radius: 6px;
-	}
-
-	.flow-list__icon::after {
-		top: 45px;
-		left: 31px;
-		width: 14px;
-		height: 2px;
-		background: var(--pink);
-		box-shadow: 0 5px 0 var(--pink);
+		border-radius: 14px;
+		object-fit: cover;
 	}
 
 	.flow-list h3 {
@@ -2465,28 +2464,19 @@ const faqs = [
 
 		.flow-list li {
 			display: grid;
-			grid-template-columns: 74px 1fr;
+			grid-template-columns: 92px 1fr;
 			align-items: center;
 			min-height: 0;
 			padding: 24px 22px;
 			text-align: left;
 		}
 
-		.flow-list__icon {
+		.flow-list__image {
 			grid-row: 1 / 3;
-			width: 58px;
-			height: 58px;
+			width: 76px;
+			height: 76px;
 			margin: 0;
-		}
-
-		.flow-list__icon::before {
-			top: 17px;
-			left: 16px;
-		}
-
-		.flow-list__icon::after {
-			top: 38px;
-			left: 23px;
+			border-radius: 12px;
 		}
 
 		.flow-list h3 {
