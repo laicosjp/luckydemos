@@ -1,0 +1,359 @@
+/* ============================================
+   Hotel Redisy — Global Styles
+   Mobile-first / Dark luxury theme
+   ============================================ */
+
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f6f6f7;
+  --surface: #ffffff;
+  --line: #e4e4e7;
+  --text: #2a2a2e;
+  --text-dim: #6f6f76;
+  --accent: #9a9aa0;
+  --accent-strong: #1a1a1c;
+  --wine: #8e2f3c;
+  --radius: 10px;
+  --header-h: 64px;
+  --font-serif: "Zen Old Mincho", "Hiragino Mincho ProN", serif;
+  --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+
+.container {
+  width: min(100% - 40px, 1080px);
+  margin-inline: auto;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header__inner {
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.brand__name {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--accent-strong);
+  letter-spacing: 0.12em;
+}
+
+.brand__sub {
+  font-size: 0.62rem;
+  color: var(--text-dim);
+  letter-spacing: 0.28em;
+}
+
+.header-tel {
+  display: none;
+}
+
+/* ---------- Nav ---------- */
+.site-nav {
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  position: sticky;
+  top: var(--header-h);
+  z-index: 99;
+}
+
+.site-nav ul {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.site-nav ul::-webkit-scrollbar { display: none; }
+
+.site-nav a {
+  display: block;
+  padding: 12px 18px;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+  color: var(--text-dim);
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--accent-strong);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Page hero (subpages) ---------- */
+.page-hero {
+  padding: 56px 0 40px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% -20%, rgba(0, 0, 0, 0.03), transparent 60%),
+    var(--bg-soft);
+  border-bottom: 1px solid var(--line);
+}
+
+.page-hero h1 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.7rem;
+  letter-spacing: 0.2em;
+  color: var(--accent-strong);
+}
+
+.page-hero p {
+  margin-top: 6px;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+/* ---------- Sections ---------- */
+.section { padding: 56px 0; }
+
+.section-title {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.section-title h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.45rem;
+  letter-spacing: 0.18em;
+  color: var(--accent-strong);
+}
+
+.section-title p {
+  margin-top: 4px;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.section-title h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  margin: 14px auto 0;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 34px;
+  border: 1px solid var(--accent-strong);
+  color: var(--accent-strong);
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  border-radius: 2px;
+  transition: background 0.25s, color 0.25s;
+}
+
+.btn:hover {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+  color: var(--bg);
+}
+
+.btn--solid {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+  color: var(--bg);
+}
+.btn--solid:hover { background: #47474d; border-color: #47474d; }
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* ---------- Tables ---------- */
+.table-scroll { overflow-x: auto; }
+
+table.price-table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.price-table th,
+.price-table td {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  text-align: center;
+}
+
+.price-table thead th {
+  background: var(--surface);
+  color: var(--accent-strong);
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.price-table tbody th {
+  background: var(--bg-soft);
+  color: var(--text);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.price-table td strong {
+  color: var(--accent-strong);
+  font-size: 1.05em;
+}
+
+.price-table small {
+  display: block;
+  color: var(--text-dim);
+  font-size: 0.78em;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  margin-top: 40px;
+  border-top: 1px solid var(--line);
+  background: var(--bg-soft);
+  padding: 48px 0 120px;
+  text-align: center;
+}
+
+.site-footer .brand__name { font-size: 1.2rem; }
+
+.footer-info {
+  margin-top: 14px;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  line-height: 2.1;
+}
+
+.footer-nav {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 22px;
+  font-size: 0.78rem;
+}
+
+.footer-nav a { color: var(--text-dim); }
+.footer-nav a:hover { color: var(--accent-strong); }
+
+.copyright {
+  margin-top: 26px;
+  font-size: 0.7rem;
+  color: #98989e;
+  letter-spacing: 0.1em;
+}
+
+/* ---------- Mobile fixed CTA ---------- */
+.mobile-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 110;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--line);
+}
+
+.mobile-cta a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 8px calc(15px + env(safe-area-inset-bottom));
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+.mobile-cta__tel { background: var(--accent-strong); color: #fff; }
+.mobile-cta__map {
+  background: var(--bg);
+  color: var(--accent-strong);
+  border-left: 1px solid var(--line);
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width: 768px) {
+  body { font-size: 16px; }
+
+  .header-tel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 1.4;
+  }
+
+  .header-tel__number {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--accent-strong);
+    letter-spacing: 0.06em;
+  }
+
+  .header-tel__note {
+    font-size: 0.68rem;
+    color: var(--text-dim);
+  }
+
+  .site-nav ul { justify-content: center; }
+  .site-nav a { padding: 14px 26px; font-size: 0.86rem; }
+
+  .page-hero { padding: 80px 0 60px; }
+  .page-hero h1 { font-size: 2.2rem; }
+
+  .section { padding: 88px 0; }
+  .section-title h2 { font-size: 1.9rem; }
+
+  .site-footer { padding-bottom: 48px; }
+  .mobile-cta { display: none; }
+}

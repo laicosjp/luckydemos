@@ -1,0 +1,456 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const slides = [
+  "/img/slide/slide_01.jpg",
+  "/img/slide/slide_02.jpg",
+  "/img/slide/slide_03.jpg",
+  "/img/slide/slide_04.jpg",
+];
+
+const features = [
+  {
+    title: "ジェットバス＆レインシャワー",
+    text: "全客室にジェットバスとレインシャワーを完備。ゆったりとしたバスタイムを。",
+    img: "/img/room/502_2.jpg",
+  },
+  {
+    title: "浴室TV＆最新VOD",
+    text: "1,000タイトル以上のVODをご用意。浴室のテレビでもお楽しみいただけます。",
+    img: "/img/room/207_2.jpg",
+  },
+  {
+    title: "パウダースペース＆アメニティ",
+    text: "広い鏡台とクレンジング・化粧水・フェイスマスクを全室にご用意しています。",
+    img: "/img/slide/slide_02.jpg",
+  },
+  {
+    title: "サウナ・岩盤浴ルーム",
+    text: "サウナ付き（207号室）や岩盤浴付き（501号室）も。日頃の疲れをじっくり癒せます。",
+    img: "/img/room/207.jpg",
+  },
+];
+
+const MAP_EMBED =
+  "https://www.google.com/maps?q=" +
+  encodeURIComponent("大阪市都島区東野田町4-12-8 ホテル レディシー") +
+  "&output=embed";
+
+const roomPicks = [
+  { img: "/img/room/502.jpg", name: "502号室", tag: "スイート" },
+  { img: "/img/room/302.jpg", name: "302号室", tag: "Gランク" },
+  { img: "/img/room/207.jpg", name: "207号室", tag: "サウナ付き" },
+];
+---
+
+<Layout
+  title="ホテル レディシー｜大阪・京橋駅徒歩5分のラグジュアリーホテル"
+  description="大阪・京橋駅徒歩5分のホテル レディシー。全室ジェットバス・レインシャワー・VOD完備。休憩2,480円〜、宿泊5,500円〜。サウナ・岩盤浴付きのお部屋もございます。TEL 06-6352-0666"
+  path="/"
+>
+  <section class="hero" aria-label="メインビジュアル">
+    <div class="hero__slides">
+      {slides.map((src, i) => (
+        <img
+          src={src}
+          alt=""
+          class="hero__slide"
+          style={`animation-delay: ${i * 6}s`}
+          loading={i === 0 ? "eager" : "lazy"}
+        />
+      ))}
+    </div>
+    <div class="hero__overlay">
+      <div class="container">
+        <p class="hero__catch">
+          大人のための、<br class="sp-only" />上質なくつろぎを。
+        </p>
+        <p class="hero__sub">京橋駅 徒歩5分 — HOTEL REDISY</p>
+        <div class="hero__actions">
+          <a href="/rooms/" class="btn btn--solid">客室を見る</a>
+          <a href="/price/" class="btn">料金案内</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>レディシーについて</h2>
+        <p>Concept</p>
+      </div>
+      <p class="concept-text">
+        ホテル レディシーは、JR・京阪・大阪メトロ京橋駅から徒歩5分。
+        女性デザイナーの手によるリノベーションで、品よく落ち着いた空間に生まれ変わりました。
+        全室ジェットバス・VOD完備、サウナや岩盤浴付きのお部屋まで。
+        おふたりの大切な時間を、心ゆくまでお過ごしください。
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--bg-soft);">
+    <div class="container">
+      <div class="section-title">
+        <h2>設備・サービス</h2>
+        <p>Features</p>
+      </div>
+      <div class="feature-grid">
+        {features.map((f) => (
+          <div class="card feature-card">
+            <img src={f.img} alt={f.title} loading="lazy" />
+            <div class="feature-card__body">
+              <h3>{f.title}</h3>
+              <p>{f.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>客室のご案内</h2>
+        <p>Rooms</p>
+      </div>
+      <div class="room-pick-grid">
+        {roomPicks.map((r) => (
+          <a href="/rooms/" class="card room-pick">
+            <img src={r.img} alt={r.name} loading="lazy" />
+            <div class="room-pick__body">
+              <span class="room-pick__tag">{r.tag}</span>
+              <span class="room-pick__name">{r.name}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="center-cta">
+        <a href="/rooms/" class="btn">全ての客室を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--bg-soft);">
+    <div class="container">
+      <div class="section-title">
+        <h2>料金のご案内</h2>
+        <p>Price</p>
+      </div>
+      <div class="price-digest">
+        <div class="card price-digest__item">
+          <h3>休憩</h3>
+          <p class="price-digest__price">¥2,480〜</p>
+          <p class="price-digest__note">11:00〜24:00</p>
+        </div>
+        <div class="card price-digest__item">
+          <h3>宿泊</h3>
+          <p class="price-digest__price">¥5,500〜</p>
+          <p class="price-digest__note">21:00〜翌11:00</p>
+        </div>
+        <div class="card price-digest__item">
+          <h3>サービスタイム</h3>
+          <p class="price-digest__price">¥3,580〜</p>
+          <p class="price-digest__note">最大5時間</p>
+        </div>
+      </div>
+      <div class="center-cta">
+        <a href="/price/" class="btn">料金表を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="access">
+    <div class="container">
+      <div class="section-title">
+        <h2>アクセス</h2>
+        <p>Access</p>
+      </div>
+      <div class="access-grid">
+        <div class="map-wrap card">
+          <iframe
+            src={MAP_EMBED}
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="ホテル レディシーの地図"
+          ></iframe>
+        </div>
+        <div class="access-info">
+          <dl>
+            <div class="access-row">
+              <dt>住所</dt>
+              <dd>〒534-0024<br />大阪市都島区東野田町4-12-8</dd>
+            </div>
+            <div class="access-row">
+              <dt>電話</dt>
+              <dd><a href="tel:0663520666">06-6352-0666</a></dd>
+            </div>
+            <div class="access-row">
+              <dt>電車</dt>
+              <dd>JR・京阪・大阪メトロ 京橋駅より徒歩約5分</dd>
+            </div>
+            <div class="access-row">
+              <dt>お車</dt>
+              <dd>阪神高速 南森町ICより約8分</dd>
+            </div>
+            <div class="access-row">
+              <dt>お支払い</dt>
+              <dd>現金・各種クレジットカード</dd>
+            </div>
+          </dl>
+          <a
+            href="https://goo.gl/maps/iYKXArWZUUT2"
+            class="btn"
+            target="_blank"
+            rel="noopener"
+          >
+            Googleマップで開く
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    position: relative;
+    height: min(78svh, 640px);
+    overflow: hidden;
+  }
+
+  .hero__slides,
+  .hero__slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero__slide {
+    object-fit: cover;
+    opacity: 0;
+    animation: heroFade 24s infinite;
+  }
+
+  @keyframes heroFade {
+    0% { opacity: 0; transform: scale(1.05); }
+    4% { opacity: 1; }
+    25% { opacity: 1; }
+    33% { opacity: 0; transform: scale(1); }
+    100% { opacity: 0; }
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 44px;
+    background: linear-gradient(
+      to top,
+      rgba(26, 26, 28, 0.92) 0%,
+      rgba(26, 26, 28, 0.35) 45%,
+      rgba(26, 26, 28, 0.15) 100%
+    );
+  }
+
+  .hero__catch {
+    font-family: var(--font-serif);
+    font-size: 1.7rem;
+    line-height: 1.6;
+    letter-spacing: 0.14em;
+    color: #fff;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero__sub {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    letter-spacing: 0.22em;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .hero__actions {
+    margin-top: 22px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .hero .btn {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  .hero .btn:hover {
+    background: #fff;
+    color: var(--accent-strong);
+  }
+
+  .hero .btn--solid {
+    background: #fff;
+    color: var(--accent-strong);
+  }
+
+  .concept-text {
+    max-width: 640px;
+    margin-inline: auto;
+    text-align: center;
+    color: var(--text-dim);
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .feature-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .feature-card__body { padding: 14px 14px 18px; }
+
+  .feature-card h3 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--accent-strong);
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+
+  .feature-card p {
+    font-size: 0.78rem;
+    line-height: 1.8;
+    color: var(--text-dim);
+  }
+
+  .room-pick-grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .room-pick img {
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.4s;
+  }
+
+  .room-pick:hover img { transform: scale(1.04); }
+
+  .room-pick__body {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+  }
+
+  .room-pick__tag {
+    font-size: 0.7rem;
+    padding: 3px 10px;
+    border: 1px solid var(--accent);
+    color: var(--accent-strong);
+    border-radius: 999px;
+    letter-spacing: 0.08em;
+  }
+
+  .room-pick__name {
+    font-family: var(--font-serif);
+    letter-spacing: 0.1em;
+  }
+
+  .price-digest {
+    display: grid;
+    gap: 14px;
+  }
+
+  .price-digest__item {
+    padding: 26px 20px;
+    text-align: center;
+  }
+
+  .price-digest__item h3 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.16em;
+    color: var(--text);
+  }
+
+  .price-digest__price {
+    margin-top: 6px;
+    font-family: var(--font-serif);
+    font-size: 1.9rem;
+    color: var(--accent-strong);
+  }
+
+  .price-digest__note {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+  }
+
+  .access-grid {
+    display: grid;
+    gap: 28px;
+  }
+
+  .map-wrap iframe {
+    display: block;
+    border: 0;
+    width: 100%;
+    height: 320px;
+  }
+
+  .access-row {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.9rem;
+  }
+
+  .access-row dt {
+    color: var(--accent-strong);
+    font-family: var(--font-serif);
+    letter-spacing: 0.1em;
+  }
+
+  .access-row dd a {
+    color: var(--accent-strong);
+    text-decoration: underline;
+  }
+
+  .access-info .btn { margin-top: 24px; }
+
+  .center-cta {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .hero__overlay { padding-bottom: 68px; }
+    .hero__catch { font-size: 2.6rem; }
+    .sp-only { display: none; }
+    .feature-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .feature-card__body { padding: 18px 18px 22px; }
+    .feature-card h3 { font-size: 1rem; }
+    .feature-card p { font-size: 0.82rem; }
+    .room-pick-grid { grid-template-columns: repeat(3, 1fr); }
+    .price-digest { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .access-grid {
+      grid-template-columns: 1.2fr 1fr;
+      align-items: start;
+    }
+    .map-wrap iframe { height: 420px; }
+  }
+</style>

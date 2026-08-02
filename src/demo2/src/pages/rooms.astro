@@ -1,0 +1,258 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const rooms = [
+  {
+    no: "502",
+    rank: "I",
+    tag: "スイート",
+    img: "/img/room/502.jpg",
+    img2: "/img/room/502_2.jpg",
+    desc: "当館最上級のスイートルーム。大型ベッドとカウチソファ、ゆとりある空間で特別なひとときを。",
+  },
+  {
+    no: "302",
+    rank: "G",
+    tag: "デラックス",
+    img: "/img/room/302.jpg",
+    desc: "落ち着いた色調でまとめられた上位ランクのお部屋。ゆったりとおくつろぎいただけます。",
+  },
+  {
+    no: "207",
+    rank: "D",
+    tag: "サウナ付き",
+    img: "/img/room/207.jpg",
+    img2: "/img/room/207_2.jpg",
+    desc: "プライベートサウナを備えたお部屋。おふたりだけの空間で、心も身体もリフレッシュ。",
+  },
+  {
+    no: "403",
+    rank: "E",
+    tag: "スタンダード",
+    img: "/img/room/403.jpg",
+    desc: "機能とくつろぎを両立したスタンダードルーム。ジェットバス・VODはもちろん完備です。",
+  },
+  {
+    no: "205",
+    rank: "E",
+    tag: "スタンダード",
+    img: "/img/room/205.jpg",
+    desc: "温かみのある照明が心地よいお部屋。ふたりの時間がゆっくり流れます。",
+  },
+  {
+    no: "203",
+    rank: "B",
+    tag: "カジュアル",
+    img: "/img/room/203.jpg",
+    desc: "リーズナブルにご利用いただけるカジュアルルーム。設備・アメニティは上位ランクと同様です。",
+  },
+  {
+    no: "206",
+    rank: "B",
+    tag: "カジュアル",
+    img: "/img/room/206.jpg",
+    desc: "気軽に使えて居心地のよい、コストパフォーマンスに優れたお部屋です。",
+  },
+  {
+    no: "201",
+    rank: "F",
+    tag: "デラックス",
+    img: "/img/room/201.jpg",
+    desc: "ワンランク上のしつらえで人気のお部屋。ゆったりバスタイムをお楽しみください。",
+  },
+];
+
+const ranks = [
+  { rank: "A", rooms: "401" },
+  { rank: "B", rooms: "202・203・206" },
+  { rank: "C", rooms: "303・306・307" },
+  { rank: "D", rooms: "207（サウナ）" },
+  { rank: "E", rooms: "205・208・301・305・403・405・406" },
+  { rank: "F", rooms: "201" },
+  { rank: "G", rooms: "302" },
+  { rank: "H", rooms: "501（岩盤浴）" },
+  { rank: "I", rooms: "502（スイート）" },
+];
+
+const amenities = [
+  "冷蔵庫",
+  "電子レンジ",
+  "電気ポット",
+  "空気清浄機",
+  "VOD（1,000タイトル以上）",
+  "ジェットバス",
+  "レインシャワー",
+  "入浴剤",
+  "クレンジングオイル",
+  "化粧水",
+  "フェイスマスク",
+  "ヘアアイロン（貸出）",
+];
+---
+
+<Layout
+  title="客室のご案内｜ホテル レディシー【大阪・京橋】"
+  description="ホテル レディシーの客室紹介。スイート・サウナ付き・岩盤浴付きなど個性豊かなお部屋をご用意。全室ジェットバス・レインシャワー・VOD完備。大阪・京橋駅徒歩5分。"
+  path="/rooms/"
+>
+  <div class="page-hero">
+    <h1>客室のご案内</h1>
+    <p>Rooms</p>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="room-grid">
+        {rooms.map((r) => (
+          <article class="card room-card">
+            <div class="room-card__imgs">
+              <img src={r.img} alt={`${r.no}号室`} loading="lazy" />
+              {r.img2 && (
+                <img src={r.img2} alt={`${r.no}号室 その2`} loading="lazy" />
+              )}
+            </div>
+            <div class="room-card__body">
+              <div class="room-card__head">
+                <h2>{r.no}<span>号室</span></h2>
+                <span class="room-card__tag">{r.tag}</span>
+                <span class="room-card__rank">RANK {r.rank}</span>
+              </div>
+              <p>{r.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--bg-soft);">
+    <div class="container">
+      <div class="section-title">
+        <h2>ルームランク一覧</h2>
+        <p>Room Rank</p>
+      </div>
+      <div class="table-scroll">
+        <table class="price-table rank-table">
+          <thead>
+            <tr><th>ランク</th><th>部屋番号</th></tr>
+          </thead>
+          <tbody>
+            {ranks.map((r) => (
+              <tr>
+                <th>{r.rank}</th>
+                <td>{r.rooms}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="note">※ 料金はランクにより異なります。詳しくは<a href="/price/" class="text-link">料金ページ</a>をご覧ください。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>全室共通の設備・アメニティ</h2>
+        <p>Amenities</p>
+      </div>
+      <ul class="amenity-grid">
+        {amenities.map((a) => <li>{a}</li>)}
+      </ul>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .room-grid {
+    display: grid;
+    gap: 24px;
+  }
+
+  .room-card__imgs {
+    display: grid;
+    gap: 4px;
+  }
+
+  .room-card__imgs img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .room-card__body { padding: 18px 20px 22px; }
+
+  .room-card__head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
+  .room-card__head h2 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--accent-strong);
+    letter-spacing: 0.06em;
+  }
+
+  .room-card__head h2 span {
+    font-size: 0.85rem;
+    margin-left: 2px;
+  }
+
+  .room-card__tag {
+    font-size: 0.72rem;
+    padding: 3px 12px;
+    border: 1px solid var(--accent);
+    color: var(--accent-strong);
+    border-radius: 999px;
+  }
+
+  .room-card__rank {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    letter-spacing: 0.14em;
+  }
+
+  .room-card__body p {
+    font-size: 0.88rem;
+    color: var(--text-dim);
+  }
+
+  .rank-table { min-width: 0; }
+
+  .note {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+  }
+
+  .text-link {
+    color: var(--accent-strong);
+    text-decoration: underline;
+  }
+
+  .amenity-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .amenity-grid li {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 0.84rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .room-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .amenity-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+</style>

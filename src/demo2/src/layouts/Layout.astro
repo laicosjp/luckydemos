@@ -1,0 +1,126 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  path: string; // e.g. "/", "/rooms/"
+}
+
+const { title, description, path } = Astro.props;
+
+const SITE_URL = "https://kyobashi-hotel-redisy.com";
+const TEL = "06-6352-0666";
+const TEL_LINK = "tel:0663520666";
+const MAP_URL = "https://goo.gl/maps/iYKXArWZUUT2";
+
+const nav = [
+  { href: "/", label: "トップ" },
+  { href: "/rooms/", label: "客室" },
+  { href: "/price/", label: "料金" },
+  { href: "/coupon/", label: "クーポン" },
+  { href: "/#access", label: "アクセス" },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Hotel",
+  name: "ホテル レディシー",
+  alternateName: "Hotel Redisy",
+  description:
+    "大阪・京橋駅徒歩5分のホテル。全室ジェットバス・VOD完備。休憩・宿泊・サービスタイムをご用意しています。",
+  url: SITE_URL,
+  telephone: "+81-6-6352-0666",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "JP",
+    addressRegion: "大阪府",
+    addressLocality: "大阪市都島区",
+    streetAddress: "東野田町4-12-8",
+  },
+  hasMap: MAP_URL,
+  paymentAccepted: "現金, クレジットカード",
+};
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={SITE_URL + path} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={SITE_URL + path} />
+    <meta property="og:image" content={SITE_URL + "/img/slide/slide_01.jpg"} />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Old+Mincho:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a href="/" class="brand">
+          <span class="brand__name">HOTEL REDISY</span>
+          <span class="brand__sub">大阪・京橋 ホテル レディシー</span>
+        </a>
+        <a href={TEL_LINK} class="header-tel">
+          <span class="header-tel__number">TEL {TEL}</span>
+          <span class="header-tel__note">京橋駅より徒歩5分</span>
+        </a>
+      </div>
+    </header>
+
+    <nav class="site-nav" aria-label="メインメニュー">
+      <ul>
+        {
+          nav.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={path === item.href ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p class="brand__name">HOTEL REDISY</p>
+        <p class="footer-info">
+          〒534-0024 大阪市都島区東野田町4-12-8<br />
+          TEL <a href={TEL_LINK}>{TEL}</a><br />
+          JR・京阪・大阪メトロ 京橋駅より徒歩5分
+        </p>
+        <nav class="footer-nav" aria-label="フッターメニュー">
+          {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+        </nav>
+        <p class="copyright">&copy; Hotel Redisy All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <div class="mobile-cta">
+      <a href={TEL_LINK} class="mobile-cta__tel">📞 電話をかける</a>
+      <a href={MAP_URL} class="mobile-cta__map" target="_blank" rel="noopener">
+        🗺 地図を見る
+      </a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="クーポン｜ホテル レディシー【大阪・京橋】"
+  description="ホテル レディシーのお得なクーポン・キャンペーン情報。大阪・京橋駅徒歩5分。"
+  path="/coupon/"
+>
+  <div class="page-hero">
+    <h1>クーポン</h1>
+    <p>Coupon</p>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="card coupon-empty">
+        <p class="coupon-empty__main">ただいま準備中です</p>
+        <p class="coupon-empty__sub">
+          お得なクーポン・キャンペーンを準備しております。<br />
+          公開まで今しばらくお待ちください。
+        </p>
+        <a href="/price/" class="btn">料金のご案内はこちら</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .coupon-empty {
+    text-align: center;
+    padding: 64px 24px;
+  }
+
+  .coupon-empty__main {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    letter-spacing: 0.16em;
+    color: var(--accent-strong);
+  }
+
+  .coupon-empty__sub {
+    margin: 14px 0 28px;
+    font-size: 0.88rem;
+    color: var(--text-dim);
+  }
+</style>
