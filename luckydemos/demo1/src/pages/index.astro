@@ -1,0 +1,2706 @@
+---
+const imageUrl = (id: string, width = 1200) =>
+	`https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=85`;
+
+const navItems = [
+	{ label: '客室', href: '#rooms' },
+	{ label: '料金', href: '#price' },
+	{ label: '設備・サービス', href: '#facilities' },
+	{ label: 'フード', href: '#food' },
+	{ label: 'アクセス', href: '#access' },
+	{ label: 'FAQ', href: '#faq' },
+];
+
+const campaigns = [
+	{
+		kicker: '平日がお得',
+		title: '宿泊料金 20% OFF',
+		text: '月〜木曜日限定。いつもの時間を、もっとゆったり。',
+		className: 'campaign-card--yellow',
+	},
+	{
+		kicker: '今すぐ使える',
+		title: '期間限定 500円 OFF',
+		text: '公式サイトからのご予約限定クーポンです。',
+		className: 'campaign-card--mint',
+	},
+	{
+		kicker: 'メンバー様限定',
+		title: 'ポイント 2倍',
+		text: '貯めて、使えて、楽しみがもっと広がります。',
+		className: 'campaign-card--pink',
+	},
+];
+
+const rooms = [
+	{
+		name: 'Botanical Suite',
+		number: '501',
+		rank: 'Suite',
+		image: imageUrl('photo-1611892440504-42a792e24d32'),
+		tags: ['露天風呂', 'サウナ', 'キングベッド'],
+		rest: '4,480',
+		stay: '7,980',
+	},
+	{
+		name: 'Blush Theater',
+		number: '302',
+		rank: 'Premier',
+		image: imageUrl('photo-1591088398332-8a7791972843'),
+		tags: ['大画面TV', 'VOD', 'バスジェット'],
+		rest: '3,980',
+		stay: '6,980',
+	},
+	{
+		name: 'Natural Comfort',
+		number: '205',
+		rank: 'Deluxe',
+		image: imageUrl('photo-1564501049412-61c2a3083791'),
+		tags: ['マッサージチェア', '美容家電'],
+		rest: '3,480',
+		stay: '5,980',
+	},
+	{
+		name: 'Rose Standard',
+		number: '103',
+		rank: 'Standard',
+		image: imageUrl('photo-1590490360182-c33d57733427'),
+		tags: ['大型TV', 'Wi-Fi', '冷蔵庫'],
+		rest: '2,980',
+		stay: '4,980',
+	},
+];
+
+const facilities = [
+	{
+		title: 'バス・リラクゼーション',
+		text: '広々とした浴室とジェットバスで、心までほどける時間を。',
+		image: imageUrl('photo-1584622781564-1d987f7333c1'),
+	},
+	{
+		title: 'シアター＆サウンド',
+		text: '大型TVとVODを全室に。好きな作品を好きなだけ。',
+		image: imageUrl('photo-1516280440614-37939bbacd81'),
+	},
+	{
+		title: '客室設備',
+		text: '電子レンジ、冷蔵庫、電気ケトルなどを完備。',
+		image: imageUrl('photo-1570222094114-d054a817e56b'),
+	},
+	{
+		title: 'アメニティ',
+		text: 'スキンケアからヘアケアまで、選ぶ楽しさもご用意。',
+		image: imageUrl('photo-1560066984-138dadb4c035'),
+	},
+];
+
+const flowSteps = [
+	{ number: '01', title: 'ご来店', text: '駐車場に車を停め、そのままエントランスへ。' },
+	{ number: '02', title: 'お部屋を選ぶ', text: 'ロビーのパネルからお好みのお部屋を選択。' },
+	{ number: '03', title: 'ご入室', text: '発行されたキーでお部屋へ。人目を気にせずスムーズ。' },
+	{ number: '04', title: 'ご精算', text: 'お帰りの際に自動精算機でお支払いください。' },
+];
+
+const benefits = [
+	{ title: 'いつでも 5〜10% OFF', text: '休憩も宿泊も、メンバー価格でご利用いただけます。' },
+	{ title: 'ウェルカムドリンク', text: 'お好きなドリンクをお一人様一杯サービス。' },
+	{ title: 'ポイントが貯まる', text: 'ご利用ごとにポイント付与。次回のお会計に使えます。' },
+	{ title: '記念日プレゼント', text: '誕生日や特別な日に、ささやかなギフトをご用意。' },
+];
+
+const foods = [
+	{
+		title: 'シェフのおすすめ',
+		text: '季節の食材を楽しむ、できたての一皿。',
+		image: imageUrl('photo-1547592180-85f173990554'),
+	},
+	{
+		title: 'モーニング',
+		text: '宿泊のお客様には選べる朝食をサービス。',
+		image: imageUrl('photo-1533777324565-a040eb52facd'),
+	},
+	{
+		title: 'ドリンク＆デザート',
+		text: '夜更かしのお供に、甘いものと彩りドリンクを。',
+		image: imageUrl('photo-1544145945-f90425340c7e'),
+	},
+];
+
+const faqs = [
+	{
+		question: '予約は必要ですか？',
+		answer: '予約なしでもご利用いただけます。週末や連休は混み合うため、事前予約がおすすめです。',
+	},
+	{
+		question: '1人でも利用できますか？',
+		answer: 'はい、お一人様でもご利用いただけます。リモートワークやリフレッシュにもご活用ください。',
+	},
+	{
+		question: '支払い方法を教えてください',
+		answer: '現金、各種クレジットカード、主要なコード決済をご利用いただけます。',
+	},
+	{
+		question: '外出はできますか？',
+		answer: 'フロントへご連絡いただければ外出可能です。ルームキーを忘れずにお持ちください。',
+	},
+	{
+		question: '宿泊は何時からですか？',
+		answer: '日〜木曜は18時、金・土・祝前日は20時からご利用いただけます。',
+	},
+	];
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="ホテル ローズマリの公式サイト。特別な客室、充実した設備、フードサービスをご案内します。"
+		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Old+Mincho:wght@500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Hotel Rosemari | ふたりの時間を、もっと自由に。</title>
+	</head>
+	<body>
+		<header class="site-header">
+			<a class="logo" href="#top" aria-label="Hotel Rosemari トップへ">
+				<span class="logo-small">HOTEL</span>
+				<span class="logo-main">Rosemari</span>
+				<span class="logo-ja">ホテル ローズマリ</span>
+			</a>
+
+			<nav class="desktop-nav" aria-label="メインナビゲーション">
+				{navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+			</nav>
+
+			<div class="header-actions">
+				<a class="header-phone" href="tel:0000000000">
+					<span>お問い合わせ</span>
+					<strong>00-0000-0000</strong>
+				</a>
+				<a class="button button--small" href="#reserve">空室・予約</a>
+				<button
+					class="menu-button"
+					type="button"
+					aria-label="メニューを開く"
+					aria-expanded="false"
+					aria-controls="mobile-menu"
+					data-menu-button
+				>
+					<span></span><span></span><span></span>
+				</button>
+			</div>
+
+			<nav class="mobile-nav" id="mobile-menu" aria-label="モバイルナビゲーション" data-mobile-menu>
+				{navItems.map((item) => <a href={item.href}>{item.label}<span aria-hidden="true">→</span></a>)}
+				<a class="mobile-nav__reserve" href="#reserve">空室・予約を見る</a>
+			</nav>
+		</header>
+
+		<main>
+			<section class="hero" id="top">
+				<img
+					class="hero__image"
+					src={imageUrl('photo-1618773928121-c32242e63f39', 2200)}
+					alt="やわらかな照明に包まれたホテルの客室"
+					fetchpriority="high"
+				/>
+				<div class="hero__veil"></div>
+				<div class="hero__decor hero__decor--one" aria-hidden="true">♡</div>
+				<div class="hero__decor hero__decor--two" aria-hidden="true">♡</div>
+
+				<div class="hero__content container">
+					<div class="hero__copy">
+						<p class="eyebrow">JUST THE TWO OF US</p>
+						<h1>ふたりの時間を、<br /><em>もっと自由に。</em></h1>
+						<p class="hero__lead">日常を少しだけ離れて。誰にも急かされない、<br />ふたりだけの心ほどける時間をお過ごしください。</p>
+
+						<ul class="hero__points" aria-label="ホテルの特徴">
+							<li>駅から車で3分</li>
+							<li>駐車場60台</li>
+							<li>24時間利用OK</li>
+						</ul>
+
+						<div class="hero__rates">
+							<div><span>REST</span><strong>2,980<small>円〜</small></strong></div>
+							<div><span>STAY</span><strong>6,480<small>円〜</small></strong></div>
+						</div>
+
+						<div class="hero__actions">
+							<a class="button button--teal" href="#rooms">客室を見る</a>
+							<a class="button" href="#price">料金を見る</a>
+						</div>
+					</div>
+				</div>
+
+				<a class="hero__scroll" href="#campaigns">
+					<span>SCROLL</span>
+					<i aria-hidden="true"></i>
+				</a>
+			</section>
+
+			<section class="campaigns section section--compact" id="campaigns">
+				<div class="container">
+					<div class="campaigns__heading">
+						<p class="eyebrow">SPECIAL OFFERS</p>
+						<h2>今だけの、お得なお知らせ</h2>
+					</div>
+					<div class="campaign-grid">
+						{campaigns.map((campaign) => (
+							<article class={`campaign-card ${campaign.className}`}>
+								<p>{campaign.kicker}</p>
+								<h3>{campaign.title}</h3>
+								<span>{campaign.text}</span>
+							</article>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section class="section concept" id="concept">
+				<div class="container concept__inner">
+					<div class="concept__visual reveal-image">
+						<img
+							src={imageUrl('photo-1566665797739-1674de7a421a')}
+							alt="ピンクのアクセントが印象的な客室"
+							loading="lazy"
+						/>
+						<div class="concept__image-label"><span>Private</span> &amp; Relax</div>
+					</div>
+					<div class="concept__copy">
+						<div class="section-heading section-heading--left">
+							<p class="eyebrow">CONCEPT</p>
+							<h2>日常を忘れて、<br />ふたりだけの特別な時間を。</h2>
+						</div>
+						<p>ラグジュアリーでありながら、肩肘を張らずに過ごせる場所。ローズマリは、ふたりの距離が自然と近づく居心地を大切にしています。</p>
+						<p>香り、光、肌ざわりまで丁寧に選び、客室ごとに異なる物語をご用意しました。今日の気分に合う一室を見つけてください。</p>
+						<a class="text-link" href="#facilities">ホテルのこだわり <span>→</span></a>
+					</div>
+				</div>
+			</section>
+
+			<section class="section rooms" id="rooms">
+				<div class="container">
+					<div class="section-heading">
+						<p class="eyebrow">ROOMS</p>
+						<h2>お気に入りの一室を</h2>
+						<p>色も、設えも、過ごし方も。個性の異なるお部屋からお選びください。</p>
+					</div>
+
+					<div class="room-grid">
+						{rooms.map((room) => (
+							<article class="room-card">
+								<div class="room-card__image">
+									<img src={room.image} alt={`${room.name}の客室`} loading="lazy" />
+									<span>{room.rank}</span>
+								</div>
+								<div class="room-card__body">
+									<div class="room-card__title">
+										<div><span>ROOM {room.number}</span><h3>{room.name}</h3></div>
+										<span class="room-card__arrow" aria-hidden="true">↗</span>
+									</div>
+									<ul>{room.tags.map((tag) => <li>{tag}</li>)}</ul>
+									<div class="room-card__price">
+										<p><span>休憩</span><strong>¥{room.rest}</strong>〜</p>
+										<p><span>宿泊</span><strong>¥{room.stay}</strong>〜</p>
+									</div>
+								</div>
+							</article>
+						))}
+					</div>
+					<div class="center-action"><a class="button button--outline" href="#price">すべての料金を見る</a></div>
+				</div>
+			</section>
+
+			<section class="section price" id="price">
+				<div class="container container--narrow">
+					<div class="section-heading">
+						<p class="eyebrow">PRICE GUIDE</p>
+						<h2>料金案内</h2>
+						<p>わかりやすい料金で、思い立ったときに気軽に。</p>
+					</div>
+
+					<div class="price-panel">
+						<div class="price-tabs" aria-label="料金区分">
+							<span class="active">休憩</span><span>フリータイム</span><span>宿泊</span>
+						</div>
+						<div class="price-table-wrap">
+							<table>
+								<thead><tr><th>ご利用時間</th><th>平日</th><th>土日祝</th></tr></thead>
+								<tbody>
+									<tr><th>90分</th><td><strong>2,980</strong>円〜</td><td><strong>3,980</strong>円〜</td></tr>
+									<tr><th>3時間</th><td><strong>3,980</strong>円〜</td><td><strong>5,280</strong>円〜</td></tr>
+									<tr><th>5時間</th><td><strong>4,980</strong>円〜</td><td><strong>6,480</strong>円〜</td></tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="price-panel__note">
+							<span>MEMBER PRICE</span>
+							<p>メンバー登録ですべての基本料金が<strong>5〜10% OFF</strong></p>
+						</div>
+					</div>
+					<p class="fine-print">※表示価格は税込です。特別期間は料金が異なる場合があります。</p>
+				</div>
+			</section>
+
+			<section class="section facilities" id="facilities">
+				<div class="container">
+					<div class="section-heading">
+						<p class="eyebrow">FACILITIES &amp; SERVICE</p>
+						<h2>設備・サービス</h2>
+						<p>手ぶらで訪れても、いつものように寛げるものを揃えました。</p>
+					</div>
+					<div class="facility-grid">
+						{facilities.map((facility, index) => (
+							<article class="facility-card">
+								<div class="facility-card__image">
+									<img src={facility.image} alt={facility.title} loading="lazy" />
+									<span>0{index + 1}</span>
+								</div>
+								<div><h3>{facility.title}</h3><p>{facility.text}</p></div>
+							</article>
+						))}
+					</div>
+					<div class="center-action"><a class="text-link" href="#reserve">詳しい設備を見る <span>→</span></a></div>
+				</div>
+			</section>
+
+			<section class="section flow" id="flow">
+				<div class="container">
+					<div class="section-heading">
+						<p class="eyebrow">HOW TO USE</p>
+						<h2>ご利用の流れ</h2>
+						<p>はじめての方にも、シンプルで分かりやすいシステムです。</p>
+					</div>
+					<ol class="flow-list">
+						{flowSteps.map((step) => (
+							<li>
+								<span class="flow-list__number">{step.number}</span>
+								<div class="flow-list__icon" aria-hidden="true"></div>
+								<h3>{step.title}</h3>
+								<p>{step.text}</p>
+							</li>
+						))}
+					</ol>
+				</div>
+			</section>
+
+			<section class="section member" id="member">
+				<div class="container container--narrow">
+					<div class="member__intro">
+						<div class="section-heading section-heading--left">
+							<p class="eyebrow">MEMBERSHIP</p>
+							<h2>使うほど、もっと嬉しい。</h2>
+							<p>入会費・年会費は無料。お部屋の端末から、その日すぐにご登録いただけます。</p>
+						</div>
+						<div class="member-card-art" aria-hidden="true">
+							<span>ROSEMARI</span><strong>MEMBER CARD</strong><small>for our lovely guests</small>
+						</div>
+					</div>
+					<div class="benefit-grid">
+						{benefits.map((benefit, index) => (
+							<article><span>0{index + 1}</span><h3>{benefit.title}</h3><p>{benefit.text}</p></article>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section class="section food" id="food">
+				<div class="container">
+					<div class="section-heading">
+						<p class="eyebrow">FOOD &amp; ROOM SERVICE</p>
+						<h2>お部屋で楽しむ、とっておき</h2>
+						<p>24時間いつでもオーダーOK。できたてをお部屋までお届けします。</p>
+					</div>
+					<div class="food-grid">
+						{foods.map((food) => (
+							<article class="food-card">
+								<img src={food.image} alt={food.title} loading="lazy" />
+								<div><span>ROOM SERVICE</span><h3>{food.title}</h3><p>{food.text}</p></div>
+							</article>
+						))}
+					</div>
+					<div class="center-action"><a class="button button--outline" href="#reserve">メニューを見る</a></div>
+				</div>
+			</section>
+
+			<section class="section access" id="access">
+				<div class="container container--narrow">
+					<div class="section-heading">
+						<p class="eyebrow">ACCESS</p>
+						<h2>アクセス</h2>
+						<p>街の近くで、日常から少しだけ離れた場所。</p>
+					</div>
+					<div class="access-card">
+						<div class="access-card__image">
+							<img
+								src={imageUrl('photo-1566073771259-6a8506099945')}
+								alt="Hotel Rosemariの外観イメージ"
+								loading="lazy"
+							/>
+						</div>
+						<div class="access-card__info">
+							<p class="access-card__name">HOTEL <strong>Rosemari</strong></p>
+							<dl>
+								<div><dt>住所</dt><dd>〒000-0000 ○○県○○市ローズ町3-5-3</dd></div>
+								<div><dt>電話</dt><dd><a href="tel:0000000000">00-0000-0000</a></dd></div>
+								<div><dt>車でのアクセス</dt><dd>○○ICより約3分</dd></div>
+								<div><dt>駐車場</dt><dd>60台（ハイルーフ可）</dd></div>
+							</dl>
+							<a class="button button--teal" href="https://maps.google.com" target="_blank" rel="noreferrer">Googleマップで見る</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="section faq" id="faq">
+				<div class="container container--narrow">
+					<div class="section-heading">
+						<p class="eyebrow">FREQUENTLY ASKED QUESTIONS</p>
+						<h2>よくあるご質問</h2>
+					</div>
+					<div class="faq-list">
+						{faqs.map((faq) => (
+							<details>
+								<summary><span>Q</span>{faq.question}<i aria-hidden="true"></i></summary>
+								<div class="faq-list__answer"><span>A</span><p>{faq.answer}</p></div>
+							</details>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section class="closing" id="reserve">
+				<div class="container closing__inner">
+					<p class="eyebrow">A NIGHT JUST FOR TWO</p>
+					<h2>今夜、ふたりだけの時間を。</h2>
+					<div class="closing__facts">
+						<span>休憩 <strong>2,980円〜</strong></span>
+						<span>宿泊 <strong>6,480円〜</strong></span>
+						<span>駐車場 <strong>60台</strong></span>
+						<span>駅から車で <strong>3分</strong></span>
+					</div>
+					<div class="closing__actions">
+						<a class="button button--white" href="#rooms">空室・予約を見る</a>
+						<a class="button button--yellow" href="tel:0000000000">電話で問い合わせる</a>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<div class="container site-footer__main">
+				<a class="logo logo--footer" href="#top">
+					<span class="logo-small">HOTEL</span>
+					<span class="logo-main">Rosemari</span>
+					<span class="logo-ja">ホテル ローズマリ</span>
+				</a>
+				<nav aria-label="フッターナビゲーション">
+					{navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+				</nav>
+				<div class="site-footer__contact"><span>ご予約・お問い合わせ</span><a href="tel:0000000000">00-0000-0000</a></div>
+			</div>
+			<div class="container site-footer__bottom"><small>© 2026 HOTEL ROSEMARI</small><a href="#top">PAGE TOP ↑</a></div>
+		</footer>
+
+		<a class="mobile-reserve" href="#reserve"><span>空室確認・ご予約</span><strong>BOOK NOW</strong></a>
+
+		<script>
+			const menuButton = document.querySelector('[data-menu-button]');
+			const mobileMenu = document.querySelector('[data-mobile-menu]');
+
+			const closeMenu = () => {
+				menuButton?.setAttribute('aria-expanded', 'false');
+				mobileMenu?.classList.remove('is-open');
+				document.body.classList.remove('menu-open');
+			};
+
+			menuButton?.addEventListener('click', () => {
+				const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+				menuButton.setAttribute('aria-expanded', String(!isOpen));
+				mobileMenu?.classList.toggle('is-open', !isOpen);
+				document.body.classList.toggle('menu-open', !isOpen);
+			});
+
+			mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+			document.addEventListener('keydown', (event) => {
+				if (event.key === 'Escape') closeMenu();
+			});
+		</script>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--pink: #ec4d7d;
+		--pink-dark: #d93669;
+		--pink-soft: #fff0f4;
+		--blush: #fff8f7;
+		--cream: #fffaf1;
+		--teal: #25b8ad;
+		--yellow: #ffc95b;
+		--ink: #352a2d;
+		--muted: #75686b;
+		--line: #ecdfe1;
+		--white: #ffffff;
+		--shadow: 0 20px 60px rgba(104, 54, 70, 0.12);
+		--radius-lg: 30px;
+		--radius-md: 20px;
+		--container: min(1180px, calc(100% - 48px));
+	}
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	html {
+		scroll-behavior: smooth;
+		scroll-padding-top: 88px;
+	}
+
+	body {
+		margin: 0;
+		color: var(--ink);
+		background: var(--white);
+		font-family: 'Noto Sans JP', sans-serif;
+		font-size: 15px;
+		line-height: 1.8;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	body.menu-open {
+		overflow: hidden;
+	}
+
+	img {
+		display: block;
+		width: 100%;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	button,
+	input,
+	textarea,
+	select {
+		font: inherit;
+	}
+
+	.container {
+		width: var(--container);
+		margin-inline: auto;
+	}
+
+	.container--narrow {
+		max-width: 980px;
+	}
+
+	.section {
+		position: relative;
+		padding: 128px 0;
+		overflow: hidden;
+	}
+
+	.section--compact {
+		padding-block: 88px;
+	}
+
+	.eyebrow {
+		margin: 0 0 12px;
+		color: var(--pink);
+		font-size: 11px;
+		font-weight: 700;
+		letter-spacing: 0.22em;
+		line-height: 1.4;
+	}
+
+	.section-heading {
+		max-width: 680px;
+		margin: 0 auto 56px;
+		text-align: center;
+	}
+
+	.section-heading--left {
+		margin-inline: 0;
+		text-align: left;
+	}
+
+	.section-heading h2,
+	.campaigns__heading h2,
+	.closing h2 {
+		margin: 0;
+		font-family: 'Zen Old Mincho', serif;
+		font-size: clamp(32px, 4vw, 50px);
+		font-weight: 600;
+		letter-spacing: 0.04em;
+		line-height: 1.45;
+	}
+
+	.section-heading > p:last-child:not(.eyebrow) {
+		margin: 16px 0 0;
+		color: var(--muted);
+	}
+
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 190px;
+		min-height: 54px;
+		padding: 14px 28px;
+		border: 1px solid var(--pink);
+		border-radius: 999px;
+		background: var(--pink);
+		box-shadow: 0 12px 24px rgba(236, 77, 125, 0.2);
+		color: var(--white);
+		font-size: 14px;
+		font-weight: 700;
+		letter-spacing: 0.05em;
+		transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+	}
+
+	.button:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 16px 30px rgba(236, 77, 125, 0.3);
+	}
+
+	.button--small {
+		min-width: auto;
+		min-height: 44px;
+		padding: 10px 22px;
+		font-size: 13px;
+	}
+
+	.button--teal {
+		border-color: var(--teal);
+		background: var(--teal);
+		box-shadow: 0 12px 24px rgba(37, 184, 173, 0.2);
+	}
+
+	.button--outline {
+		background: transparent;
+		box-shadow: none;
+		color: var(--pink);
+	}
+
+	.button--white {
+		border-color: var(--white);
+		background: var(--white);
+		box-shadow: none;
+		color: var(--pink-dark);
+	}
+
+	.button--yellow {
+		border-color: var(--yellow);
+		background: var(--yellow);
+		box-shadow: none;
+		color: #6b4b0e;
+	}
+
+	.text-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 16px;
+		border-bottom: 1px solid var(--pink);
+		color: var(--pink-dark);
+		font-size: 13px;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+	}
+
+	.text-link span {
+		font-size: 18px;
+		transition: transform 180ms ease;
+	}
+
+	.text-link:hover span {
+		transform: translateX(4px);
+	}
+
+	.center-action {
+		margin-top: 54px;
+		text-align: center;
+	}
+
+	.site-header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 100;
+		display: flex;
+		align-items: center;
+		width: 100%;
+		height: 82px;
+		padding: 0 3.5vw;
+		border-bottom: 1px solid rgba(236, 223, 225, 0.8);
+		background: rgba(255, 255, 255, 0.95);
+		backdrop-filter: blur(18px);
+	}
+
+	.logo {
+		position: relative;
+		display: flex;
+		flex: 0 0 auto;
+		flex-direction: column;
+		align-items: center;
+		min-width: 126px;
+		line-height: 1;
+	}
+
+	.logo::after {
+		position: absolute;
+		top: 11px;
+		right: 2px;
+		color: var(--yellow);
+		content: '✦';
+		font-size: 17px;
+	}
+
+	.logo-small {
+		font-size: 8px;
+		font-weight: 700;
+		letter-spacing: 0.3em;
+	}
+
+	.logo-main {
+		margin: 4px 0 3px;
+		font-family: 'Zen Old Mincho', serif;
+		font-size: 23px;
+		font-weight: 700;
+		letter-spacing: 0.03em;
+	}
+
+	.logo-ja {
+		font-size: 7px;
+		font-weight: 600;
+		letter-spacing: 0.15em;
+	}
+
+	.desktop-nav {
+		display: flex;
+		align-items: center;
+		gap: clamp(18px, 2.3vw, 38px);
+		margin: 0 auto;
+		padding-inline: 30px;
+	}
+
+	.desktop-nav a {
+		position: relative;
+		font-size: 12px;
+		font-weight: 600;
+		white-space: nowrap;
+	}
+
+	.desktop-nav a::before {
+		display: inline-block;
+		width: 5px;
+		height: 5px;
+		margin-right: 7px;
+		border-radius: 50%;
+		background: var(--pink);
+		content: '';
+		vertical-align: 2px;
+	}
+
+	.desktop-nav a::after {
+		position: absolute;
+		bottom: -8px;
+		left: 12px;
+		width: 0;
+		height: 1px;
+		background: var(--pink);
+		content: '';
+		transition: width 180ms ease;
+	}
+
+	.desktop-nav a:hover::after {
+		width: calc(100% - 12px);
+	}
+
+	.header-actions {
+		display: flex;
+		align-items: center;
+		gap: 18px;
+	}
+
+	.header-phone {
+		display: flex;
+		flex-direction: column;
+		line-height: 1.3;
+		white-space: nowrap;
+	}
+
+	.header-phone span {
+		color: var(--muted);
+		font-size: 8px;
+	}
+
+	.header-phone strong {
+		font-size: 13px;
+	}
+
+	.menu-button,
+	.mobile-nav {
+		display: none;
+	}
+
+	.hero {
+		position: relative;
+		display: flex;
+		align-items: center;
+		min-height: 760px;
+		margin-top: 82px;
+		overflow: hidden;
+		background: #f8d7e1;
+	}
+
+	.hero__image,
+	.hero__veil {
+		position: absolute;
+		inset: 0;
+		height: 100%;
+	}
+
+	.hero__image {
+		object-fit: cover;
+		object-position: 62% center;
+	}
+
+	.hero__veil {
+		background:
+			linear-gradient(90deg, rgba(255, 250, 249, 0.98) 0%, rgba(255, 248, 248, 0.89) 35%, rgba(255, 241, 246, 0.18) 67%, rgba(232, 77, 133, 0.15) 100%),
+		linear-gradient(0deg, rgba(230, 65, 120, 0.2), transparent 50%);
+	}
+
+	.hero__content {
+		position: relative;
+		z-index: 2;
+	}
+
+	.hero__copy {
+		width: min(590px, 53%);
+	}
+
+	.hero__copy h1 {
+		margin: 0;
+		font-family: 'Zen Old Mincho', serif;
+		font-size: clamp(45px, 5.2vw, 72px);
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		line-height: 1.36;
+	}
+
+	.hero__copy h1 em {
+		color: var(--pink);
+		font-style: normal;
+	}
+
+	.hero__lead {
+		margin: 22px 0 0;
+		color: #574a4d;
+		font-family: 'Zen Old Mincho', serif;
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 2;
+	}
+
+	.hero__points {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		margin: 26px 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.hero__points li {
+		padding: 7px 13px;
+		border: 1px solid rgba(236, 77, 125, 0.2);
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.82);
+		color: var(--pink-dark);
+		font-size: 11px;
+		font-weight: 700;
+	}
+
+	.hero__points li::before {
+		margin-right: 6px;
+		content: '●';
+		font-size: 6px;
+		vertical-align: 2px;
+	}
+
+	.hero__rates {
+		display: flex;
+		gap: 12px;
+		margin-top: 18px;
+	}
+
+	.hero__rates > div {
+		display: flex;
+		align-items: baseline;
+		gap: 12px;
+		min-width: 190px;
+		padding: 11px 20px;
+		border-radius: 16px;
+		background: rgba(255, 255, 255, 0.9);
+		box-shadow: 0 10px 30px rgba(113, 61, 76, 0.08);
+	}
+
+	.hero__rates span {
+		color: var(--pink-dark);
+		font-size: 9px;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+	}
+
+	.hero__rates strong {
+		color: var(--pink);
+		font-size: 25px;
+		line-height: 1;
+	}
+
+	.hero__rates small {
+		margin-left: 2px;
+		color: var(--ink);
+		font-size: 10px;
+	}
+
+	.hero__actions {
+		display: flex;
+		gap: 14px;
+		margin-top: 22px;
+	}
+
+	.hero__decor {
+		position: absolute;
+		z-index: 1;
+		color: rgba(255, 255, 255, 0.75);
+		font-family: serif;
+		font-size: 120px;
+		line-height: 1;
+		transform: rotate(-10deg);
+	}
+
+	.hero__decor--one {
+		top: 54px;
+		right: 5vw;
+	}
+
+	.hero__decor--two {
+		bottom: 25px;
+		left: 45%;
+		font-size: 58px;
+	}
+
+	.hero__scroll {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		z-index: 3;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 8px;
+		color: var(--white);
+		font-size: 8px;
+		font-weight: 700;
+		letter-spacing: 0.2em;
+		transform: translateX(-50%);
+	}
+
+	.hero__scroll i {
+		display: block;
+		width: 1px;
+		height: 42px;
+		background: var(--white);
+	}
+
+	.campaigns {
+		background:
+			radial-gradient(circle at 4% 25%, rgba(255, 206, 99, 0.18) 0 5px, transparent 6px),
+			radial-gradient(circle at 96% 75%, rgba(37, 184, 173, 0.14) 0 6px, transparent 7px),
+			var(--white);
+	}
+
+	.campaigns__heading {
+		display: flex;
+		align-items: end;
+		justify-content: space-between;
+		gap: 30px;
+		margin-bottom: 38px;
+	}
+
+	.campaigns__heading .eyebrow {
+		margin-bottom: 7px;
+	}
+
+	.campaigns__heading h2 {
+		font-size: clamp(27px, 3vw, 38px);
+	}
+
+	.campaign-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+	}
+
+	.campaign-card {
+		position: relative;
+		min-height: 180px;
+		padding: 30px 32px;
+		border: 1px solid rgba(255, 255, 255, 0.75);
+		border-radius: var(--radius-md);
+		overflow: hidden;
+	}
+
+	.campaign-card::after {
+		position: absolute;
+		right: -27px;
+		bottom: -45px;
+		width: 145px;
+		height: 145px;
+		border: 25px solid rgba(255, 255, 255, 0.65);
+		border-radius: 50%;
+		content: '';
+	}
+
+	.campaign-card--yellow {
+		background: #fff0b9;
+		color: #9c6b18;
+	}
+
+	.campaign-card--mint {
+		background: #dff7f2;
+		color: #168f88;
+	}
+
+	.campaign-card--pink {
+		background: #ffe0e9;
+		color: var(--pink-dark);
+	}
+
+	.campaign-card p {
+		margin: 0 0 5px;
+		font-size: 11px;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+	}
+
+	.campaign-card h3 {
+		position: relative;
+		z-index: 1;
+		margin: 0 0 10px;
+		font-size: clamp(20px, 2.1vw, 29px);
+		line-height: 1.4;
+	}
+
+	.campaign-card > span {
+		position: relative;
+		z-index: 1;
+		display: block;
+		max-width: 75%;
+		font-size: 11px;
+		line-height: 1.7;
+	}
+
+	.concept {
+		background: var(--blush);
+	}
+
+	.concept::before,
+	.concept::after {
+		position: absolute;
+		border: 1px solid rgba(236, 77, 125, 0.16);
+		border-radius: 50%;
+		content: '';
+	}
+
+	.concept::before {
+		top: 85px;
+		left: -70px;
+		width: 180px;
+		height: 180px;
+	}
+
+	.concept::after {
+		right: -50px;
+		bottom: 60px;
+		width: 110px;
+		height: 110px;
+	}
+
+	.concept__inner {
+		display: grid;
+		grid-template-columns: minmax(0, 1.12fr) minmax(380px, 0.88fr);
+		align-items: center;
+		gap: clamp(60px, 9vw, 125px);
+	}
+
+	.concept__visual {
+		position: relative;
+		padding: 0 36px 36px 0;
+	}
+
+	.concept__visual::before {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 75%;
+		height: 76%;
+		border-radius: var(--radius-lg);
+		background: #f6d5df;
+		content: '';
+	}
+
+	.concept__visual img {
+		position: relative;
+		z-index: 1;
+		height: 560px;
+		border-radius: 180px 24px 180px 24px;
+		box-shadow: var(--shadow);
+		object-fit: cover;
+	}
+
+	.concept__image-label {
+		position: absolute;
+		right: -30px;
+		bottom: 75px;
+		z-index: 2;
+		padding: 15px 24px;
+		border-radius: 999px;
+		background: var(--white);
+		box-shadow: var(--shadow);
+		color: var(--muted);
+		font-family: 'Zen Old Mincho', serif;
+		font-size: 13px;
+	}
+
+	.concept__image-label span {
+		color: var(--pink);
+		font-size: 18px;
+	}
+
+	.concept__copy .section-heading {
+		margin-bottom: 30px;
+	}
+
+	.concept__copy > p {
+		margin: 0 0 20px;
+		color: var(--muted);
+	}
+
+	.concept__copy .text-link {
+		margin-top: 15px;
+	}
+
+	.rooms {
+		background: var(--white);
+	}
+
+	.room-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 28px;
+	}
+
+	.room-card {
+		border: 1px solid var(--line);
+		border-radius: var(--radius-lg);
+		background: var(--white);
+		overflow: hidden;
+		transition: box-shadow 220ms ease, transform 220ms ease;
+	}
+
+	.room-card:hover {
+		box-shadow: var(--shadow);
+		transform: translateY(-5px);
+	}
+
+	.room-card__image {
+		position: relative;
+		height: 310px;
+		overflow: hidden;
+	}
+
+	.room-card__image::after {
+		position: absolute;
+		inset: 55% 0 0;
+		background: linear-gradient(transparent, rgba(42, 22, 28, 0.38));
+		content: '';
+	}
+
+	.room-card__image img {
+		height: 100%;
+		object-fit: cover;
+		transition: transform 500ms ease;
+	}
+
+	.room-card:hover .room-card__image img {
+		transform: scale(1.035);
+	}
+
+	.room-card__image > span {
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		z-index: 2;
+		padding: 7px 13px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.9);
+		color: var(--pink-dark);
+		font-size: 9px;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.room-card__body {
+		padding: 27px 30px 30px;
+	}
+
+	.room-card__title {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 20px;
+	}
+
+	.room-card__title span:first-child {
+		color: var(--pink);
+		font-size: 9px;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+	}
+
+	.room-card__title h3 {
+		margin: 3px 0 0;
+		font-family: 'Zen Old Mincho', serif;
+		font-size: 24px;
+		line-height: 1.4;
+	}
+
+	.room-card__arrow {
+		display: grid;
+		flex: 0 0 auto;
+		width: 42px;
+		height: 42px;
+		border: 1px solid var(--line);
+		border-radius: 50%;
+		color: var(--pink);
+		font-size: 17px;
+		place-items: center;
+	}
+
+	.room-card__body ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 7px;
+		margin: 18px 0 22px;
+		padding: 0;
+		list-style: none;
+	}
+
+	.room-card__body li {
+		padding: 4px 10px;
+		border-radius: 5px;
+		background: var(--pink-soft);
+		color: var(--pink-dark);
+		font-size: 9px;
+		font-weight: 600;
+	}
+
+	.room-card__price {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 12px;
+		padding-top: 20px;
+		border-top: 1px solid var(--line);
+	}
+
+	.room-card__price p {
+		margin: 0;
+		font-size: 10px;
+		text-align: right;
+	}
+
+	.room-card__price p:first-child {
+		padding-right: 12px;
+		border-right: 1px solid var(--line);
+	}
+
+	.room-card__price span {
+		float: left;
+		color: var(--muted);
+		font-size: 9px;
+	}
+
+	.room-card__price strong {
+		font-size: 19px;
+	}
+
+	.price {
+		background:
+			linear-gradient(135deg, rgba(255, 255, 255, 0.7), transparent 45%),
+			var(--pink-soft);
+	}
+
+	.price-panel {
+		padding: 16px 16px 30px;
+		border: 1px solid rgba(236, 77, 125, 0.18);
+		border-radius: var(--radius-lg);
+		background: rgba(255, 255, 255, 0.86);
+		box-shadow: var(--shadow);
+	}
+
+	.price-tabs {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		margin-bottom: 8px;
+		border-radius: 16px;
+		overflow: hidden;
+	}
+
+	.price-tabs span {
+		padding: 13px;
+		background: #fff5f8;
+		color: var(--pink);
+		font-size: 12px;
+		font-weight: 700;
+		text-align: center;
+	}
+
+	.price-tabs .active {
+		background: var(--pink);
+		color: var(--white);
+	}
+
+	.price-table-wrap {
+		overflow-x: auto;
+	}
+
+	.price table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 13px;
+		text-align: center;
+	}
+
+	.price th,
+	.price td {
+		padding: 17px;
+		border-bottom: 1px solid var(--line);
+	}
+
+	.price thead th {
+		color: var(--muted);
+		font-size: 11px;
+		font-weight: 600;
+	}
+
+	.price tbody th {
+		font-weight: 600;
+	}
+
+	.price td strong {
+		margin-right: 3px;
+		color: var(--pink-dark);
+		font-size: 21px;
+	}
+
+	.price-panel__note {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 22px;
+		margin: 26px 20px 0;
+		padding: 20px;
+		border-radius: 16px;
+		background: var(--cream);
+	}
+
+	.price-panel__note > span {
+		padding: 6px 12px;
+		border-radius: 999px;
+		background: var(--yellow);
+		color: #795416;
+		font-size: 9px;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+	}
+
+	.price-panel__note p {
+		margin: 0;
+		font-size: 13px;
+	}
+
+	.price-panel__note strong {
+		margin-left: 5px;
+		color: var(--pink);
+		font-size: 18px;
+	}
+
+	.fine-print {
+		margin: 20px 0 0;
+		color: var(--muted);
+		font-size: 10px;
+		text-align: center;
+	}
+
+	.facilities {
+		background: var(--white);
+	}
+
+	.facility-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 48px 36px;
+	}
+
+	.facility-card__image {
+		position: relative;
+		height: 310px;
+		border-radius: var(--radius-md);
+		overflow: hidden;
+	}
+
+	.facility-card__image img {
+		height: 100%;
+		object-fit: cover;
+		transition: transform 500ms ease;
+	}
+
+	.facility-card:hover img {
+		transform: scale(1.04);
+	}
+
+	.facility-card__image span {
+		position: absolute;
+		right: 18px;
+		bottom: 10px;
+		color: rgba(255, 255, 255, 0.85);
+		font-family: 'Zen Old Mincho', serif;
+		font-size: 44px;
+	}
+
+	.facility-card > div:last-child {
+		padding: 22px 8px 0;
+	}
+
+	.facility-card h3 {
+		margin: 0 0 7px;
+		font-family: 'Zen Old Mincho', serif;
+		font-size: 21px;
+	}
+
+	.facility-card p {
+		margin: 0;
+		color: var(--muted);
+		font-size: 12px;
+	}
+
+	.flow {
+		background: var(--cream);
+	}
+
+	.flow-list {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 16px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.flow-list li {
+		position: relative;
+		min-height: 290px;
+		padding: 30px 24px;
+		border: 1px solid rgba(236, 223, 225, 0.7);
+		border-radius: var(--radius-md);
+		background: rgba(255, 255, 255, 0.82);
+		text-align: center;
+	}
+
+	.flow-list li:not(:last-child)::after {
+		position: absolute;
+		top: 50%;
+		right: -13px;
+		z-index: 2;
+		width: 10px;
+		height: 10px;
+		border-top: 2px solid #f5afbf;
+		border-right: 2px solid #f5afbf;
+		content: '';
+		transform: rotate(45deg);
+	}
+
+	.flow-list__number {
+		position: absolute;
+		top: 16px;
+		left: 20px;
+		color: #e8ccd2;
+		font-family: 'Zen Old Mincho', serif;
+		font-size: 18px;
+	}
+
+	.flow-list__icon {
+		position: relative;
+		width: 76px;
+		height: 76px;
+		margin: 18px auto 22px;
+		border-radius: 50%;
+		background: var(--pink-soft);
+	}
+
+	.flow-list__icon::before,
+	.flow-list__icon::after {
+		position: absolute;
+		content: '';
+	}
+
+	.flow-list__icon::before {
+		top: 23px;
+		left: 24px;
+		width: 27px;
+		height: 19px;
+		border: 2px solid var(--pink);
+		border-radius: 6px;
+	}
+
+	.flow-list__icon::after {
+		top: 45px;
+		left: 31px;
+		width: 14px;
+		height: 2px;
+		background: var(--pink);
+		box-shadow: 0 5px 0 var(--pink);
+	}
+
+	.flow-list h3 {
+		margin: 0 0 10px;
+		font-family: 'Zen Old Mincho', serif;
+		font-size: 18px;
+	}
+
+	.flow-list p {
+		margin: 0;
+		color: var(--muted);
+		font-size: 11px;
+		line-height: 1.8;
+	}
+
+	.member {
+		background:
+			radial-gradient(circle at 85% 20%, rgba(37, 184, 173, 0.1) 0 6px, transparent 7px),
+			linear-gradient(125deg, #fff8fa 0%, #f4fffd 100%);
+	}
+
+	.member__intro {
+		display: grid;
+		grid-template-columns: 1fr 390px;
+		align-items: center;
+		gap: 80px;
+		margin-bottom: 65px;
+	}
+
+	.member__intro .section-heading {
+		margin-bottom: 0;
+	}
+
+	.member-card-art {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 330px;
+		height: 190px;
+		margin: auto;
+		padding: 34px;
+		border: 1px solid rgba(255, 255, 255, 0.75);
+		border-radius: 22px;
+		background: linear-gradient(135deg, #ff7fa4, #ed4679 70%, #df3468);
+		box-shadow: 0 25px 50px rgba(218, 52, 104, 0.24);
+		color: var(--white);
+		transform: rotate(-5deg);
+	}
+
+	.member-card-art::after {
+		position: absolute;
+		top: 24px;
+		right: 27px;
+		content: '♡';
+		font-family: serif;
+		font-size: 42px;
+	}
+
+	.member-card-art span {
+		font-size: 10px;
+		font-weight: 700;
+		letter-spacing: 0.2em;
+	}
+
+	.member-card-art strong {
+		margin: 6px 0;
+		font-size: 24px;
+		letter-spacing: 0.08em;
+	}
+
+	.member-card-art small {
+		font-family: 'Zen Old Mincho', serif;
+		font-size: 10px;
+	}
+
+	.benefit-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 16px;
+	}
+
+	.benefit-grid article {
+		position: relative;
+		min-height: 175px;
+		padding: 30px 34px 28px 78px;
+		border: 1px solid rgba(236, 223, 225, 0.72);
+		border-radius: var(--radius-md);
+		background: rgba(255, 255, 255, 0.84);
+	}
+
+	.benefit-grid article > span {
+		position: absolute;
+		top: 32px;
+		left: 28px;
+		display: grid;
+		width: 34px;
+		height: 34px;
+		border-radius: 50%;
+		background: var(--pink);
+		color: var(--white);
+		font-size: 10px;
+		font-weight: 700;
+		place-items: center;
+	}
+
+	.benefit-grid h3 {
+		margin: 0 0 7px;
+		font-size: 16px;
+	}
+
+	.benefit-grid p {
+		margin: 0;
+		color: var(--muted);
+		font-size: 11px;
+	}
+
+	.food {
+		background: var(--white);
+	}
+
+	.food-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 22px;
+	}
+
+	.food-card {
+		position: relative;
+		border-radius: var(--radius-md);
+		background: var(--cream);
+		overflow: hidden;
+	}
+
+	.food-card img {
+		height: 300px;
+		object-fit: cover;
+		transition: transform 500ms ease;
+	}
+
+	.food-card:hover img {
+		transform: scale(1.04);
+	}
+
+	.food-card div {
+		padding: 25px 27px 30px;
+	}
+
+	.food-card span {
+		color: var(--pink);
+		font-size: 8px;
+		font-weight: 700;
+		letter-spacing: 0.16em;
+	}
+
+	.food-card h3 {
+		margin: 5px 0 7px;
+		font-family: 'Zen Old Mincho', serif;
+		font-size: 20px;
+	}
+
+	.food-card p {
+		margin: 0;
+		color: var(--muted);
+		font-size: 11px;
+	}
+
+	.access {
+		background: var(--blush);
+	}
+
+	.access-card {
+		display: grid;
+		grid-template-columns: 1.05fr 0.95fr;
+		min-height: 470px;
+		border-radius: var(--radius-lg);
+		background: var(--white);
+		box-shadow: var(--shadow);
+		overflow: hidden;
+	}
+
+	.access-card__image img {
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.access-card__info {
+		padding: 55px 50px;
+	}
+
+	.access-card__name {
+		margin: 0 0 30px;
+		font-size: 9px;
+		font-weight: 700;
+		letter-spacing: 0.15em;
+	}
+
+	.access-card__name strong {
+		display: block;
+		font-family: 'Zen Old Mincho', serif;
+		font-size: 30px;
+		letter-spacing: 0.03em;
+	}
+
+	.access-card dl {
+		margin: 0 0 32px;
+	}
+
+	.access-card dl > div {
+		display: grid;
+		grid-template-columns: 110px 1fr;
+		gap: 18px;
+		padding: 10px 0;
+		border-bottom: 1px solid var(--line);
+		font-size: 11px;
+	}
+
+	.access-card dt {
+		color: var(--pink-dark);
+		font-weight: 700;
+	}
+
+	.access-card dd {
+		margin: 0;
+	}
+
+	.access-card .button {
+		min-height: 48px;
+	}
+
+	.faq {
+		background: var(--white);
+	}
+
+	.faq-list {
+		border-top: 1px solid var(--line);
+	}
+
+	.faq-list details {
+		border-bottom: 1px solid var(--line);
+	}
+
+	.faq-list summary {
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		padding: 26px 60px 26px 8px;
+		font-size: 14px;
+		font-weight: 600;
+		list-style: none;
+		cursor: pointer;
+	}
+
+	.faq-list summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.faq-list summary > span,
+	.faq-list__answer > span {
+		display: grid;
+		flex: 0 0 auto;
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		background: var(--pink);
+		color: var(--white);
+		font-size: 12px;
+		place-items: center;
+	}
+
+	.faq-list summary i,
+	.faq-list summary i::after {
+		position: absolute;
+		width: 14px;
+		height: 1px;
+		background: var(--pink);
+		content: '';
+	}
+
+	.faq-list summary i {
+		right: 15px;
+	}
+
+	.faq-list summary i::after {
+		transform: rotate(90deg);
+		transition: transform 180ms ease;
+	}
+
+	.faq-list details[open] summary i::after {
+		transform: rotate(0);
+	}
+
+	.faq-list__answer {
+		display: flex;
+		gap: 20px;
+		padding: 0 60px 28px 8px;
+		color: var(--muted);
+	}
+
+	.faq-list__answer > span {
+		background: var(--teal);
+	}
+
+	.faq-list__answer p {
+		margin: 2px 0 0;
+		font-size: 12px;
+	}
+
+	.closing {
+		position: relative;
+		padding: 105px 0;
+		background:
+			linear-gradient(135deg, rgba(220, 44, 101, 0.93), rgba(255, 109, 151, 0.88)),
+			url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1800&q=75') center / cover;
+		color: var(--white);
+		text-align: center;
+	}
+
+	.closing::before,
+	.closing::after {
+		position: absolute;
+		color: rgba(255, 255, 255, 0.24);
+		content: '♡';
+		font-family: serif;
+		font-size: 100px;
+	}
+
+	.closing::before {
+		top: 25px;
+		left: 5%;
+		transform: rotate(-15deg);
+	}
+
+	.closing::after {
+		right: 5%;
+		bottom: 25px;
+		transform: rotate(12deg);
+	}
+
+	.closing__inner {
+		position: relative;
+		z-index: 1;
+	}
+
+	.closing .eyebrow {
+		color: var(--white);
+	}
+
+	.closing__facts {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 12px;
+		margin: 36px auto 26px;
+	}
+
+	.closing__facts span {
+		padding: 14px 12px;
+		border: 1px solid rgba(255, 255, 255, 0.45);
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.13);
+		font-size: 11px;
+		backdrop-filter: blur(8px);
+	}
+
+	.closing__facts strong {
+		font-size: 16px;
+	}
+
+	.closing__actions {
+		display: flex;
+		justify-content: center;
+		gap: 14px;
+	}
+
+	.site-footer {
+		padding: 60px 0 25px;
+		background: #352e30;
+		color: rgba(255, 255, 255, 0.8);
+	}
+
+	.site-footer__main {
+		display: grid;
+		grid-template-columns: 180px 1fr 190px;
+		align-items: center;
+		gap: 60px;
+	}
+
+	.logo--footer {
+		width: 145px;
+		color: var(--white);
+	}
+
+	.site-footer nav {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 14px 30px;
+	}
+
+	.site-footer nav a {
+		font-size: 10px;
+	}
+
+	.site-footer__contact {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.site-footer__contact span {
+		font-size: 8px;
+	}
+
+	.site-footer__contact a {
+		color: var(--white);
+		font-size: 19px;
+		font-weight: 700;
+	}
+
+	.site-footer__bottom {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 44px;
+		padding-top: 20px;
+		border-top: 1px solid rgba(255, 255, 255, 0.12);
+		font-size: 8px;
+		letter-spacing: 0.08em;
+	}
+
+	.mobile-reserve {
+		display: none;
+	}
+
+	@media (max-width: 1120px) {
+		.site-header {
+			padding-inline: 24px;
+		}
+
+		.desktop-nav {
+			gap: 15px;
+			padding-inline: 20px;
+		}
+
+		.desktop-nav a {
+			font-size: 10px;
+		}
+
+		.header-phone {
+			display: none;
+		}
+
+		.concept__inner {
+			grid-template-columns: 1fr 0.9fr;
+			gap: 65px;
+		}
+
+		.concept__image-label {
+			right: 0;
+		}
+	}
+
+	@media (max-width: 900px) {
+		:root {
+			--container: min(100% - 40px, 720px);
+		}
+
+		.section {
+			padding-block: 100px;
+		}
+
+		.desktop-nav,
+		.header-actions > .button {
+			display: none;
+		}
+
+		.header-actions {
+			margin-left: auto;
+		}
+
+		.menu-button {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 5px;
+			width: 46px;
+			height: 46px;
+			padding: 0 11px;
+			border: 0;
+			border-radius: 50%;
+			background: var(--pink-soft);
+			cursor: pointer;
+		}
+
+		.menu-button span {
+			display: block;
+			width: 100%;
+			height: 1px;
+			background: var(--pink-dark);
+			transition: transform 180ms ease, opacity 180ms ease;
+		}
+
+		.menu-button[aria-expanded='true'] span:first-child {
+			transform: translateY(6px) rotate(45deg);
+		}
+
+		.menu-button[aria-expanded='true'] span:nth-child(2) {
+			opacity: 0;
+		}
+
+		.menu-button[aria-expanded='true'] span:last-child {
+			transform: translateY(-6px) rotate(-45deg);
+		}
+
+		.mobile-nav {
+			position: fixed;
+			top: 82px;
+			left: 0;
+			display: flex;
+			visibility: hidden;
+			flex-direction: column;
+			width: 100%;
+			height: calc(100dvh - 82px);
+			padding: 26px 24px;
+			background: rgba(255, 248, 250, 0.98);
+			opacity: 0;
+			transform: translateY(-10px);
+			transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
+		}
+
+		.mobile-nav.is-open {
+			visibility: visible;
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		.mobile-nav > a:not(.mobile-nav__reserve) {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 16px 4px;
+			border-bottom: 1px solid var(--line);
+			font-family: 'Zen Old Mincho', serif;
+			font-size: 17px;
+		}
+
+		.mobile-nav__reserve {
+			margin-top: 28px;
+			padding: 15px;
+			border-radius: 999px;
+			background: var(--pink);
+			color: var(--white);
+			font-weight: 700;
+			text-align: center;
+		}
+
+		.hero {
+			min-height: 760px;
+		}
+
+		.hero__image {
+			object-position: 65% center;
+		}
+
+		.hero__veil {
+			background: linear-gradient(90deg, rgba(255, 249, 249, 0.97), rgba(255, 247, 249, 0.87) 48%, rgba(240, 126, 164, 0.17));
+		}
+
+		.hero__copy {
+			width: 72%;
+		}
+
+		.concept__inner {
+			grid-template-columns: 1fr;
+			gap: 65px;
+		}
+
+		.concept__visual {
+			width: min(600px, 92%);
+		}
+
+		.concept__visual img {
+			height: 500px;
+		}
+
+		.concept__copy {
+			max-width: 620px;
+		}
+
+		.facility-card__image {
+			height: 260px;
+		}
+
+		.flow-list {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.flow-list li:not(:last-child)::after {
+			display: none;
+		}
+
+		.member__intro {
+			grid-template-columns: 1fr;
+			gap: 50px;
+		}
+
+		.member-card-art {
+			margin-left: 40px;
+		}
+
+		.food-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.food-card {
+			display: grid;
+			grid-template-columns: 0.9fr 1.1fr;
+			align-items: center;
+		}
+
+		.food-card img {
+			height: 250px;
+		}
+
+		.access-card {
+			grid-template-columns: 1fr;
+		}
+
+		.access-card__image {
+			height: 390px;
+		}
+
+		.closing__facts {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.site-footer__main {
+			grid-template-columns: 160px 1fr;
+		}
+
+		.site-footer__contact {
+			grid-column: 2;
+		}
+	}
+
+	@media (max-width: 640px) {
+		:root {
+			--container: calc(100% - 32px);
+			--radius-lg: 24px;
+			--radius-md: 17px;
+		}
+
+		html {
+			scroll-padding-top: 70px;
+		}
+
+		body {
+			padding-bottom: 67px;
+			font-size: 14px;
+		}
+
+		.section,
+		.section--compact {
+			padding-block: 80px;
+		}
+
+		.section-heading {
+			margin-bottom: 40px;
+		}
+
+		.section-heading h2,
+		.closing h2 {
+			font-size: 30px;
+		}
+
+		.section-heading > p:last-child:not(.eyebrow) {
+			font-size: 12px;
+		}
+
+		.site-header {
+			height: 70px;
+			padding-inline: 16px;
+		}
+
+		.logo {
+			align-items: flex-start;
+			min-width: 115px;
+		}
+
+		.logo::after {
+			right: 4px;
+		}
+
+		.logo-main {
+			font-size: 20px;
+		}
+
+		.mobile-nav {
+			top: 70px;
+			height: calc(100dvh - 70px);
+		}
+
+		.hero {
+			align-items: flex-end;
+			min-height: 770px;
+			margin-top: 70px;
+			padding-bottom: 62px;
+		}
+
+		.hero__image {
+			object-position: 69% top;
+		}
+
+		.hero__veil {
+			background:
+				linear-gradient(0deg, rgba(255, 249, 249, 0.98) 0%, rgba(255, 248, 250, 0.92) 45%, rgba(238, 95, 144, 0.05) 78%),
+				linear-gradient(90deg, rgba(255, 246, 249, 0.35), rgba(255, 246, 249, 0));
+		}
+
+		.hero__copy {
+			width: 100%;
+		}
+
+		.hero__copy h1 {
+			font-size: clamp(36px, 11vw, 49px);
+			line-height: 1.35;
+		}
+
+		.hero__lead {
+			margin-top: 15px;
+			font-size: 12px;
+			line-height: 1.9;
+		}
+
+		.hero__lead br {
+			display: none;
+		}
+
+		.hero__points {
+			gap: 6px;
+			margin-top: 17px;
+		}
+
+		.hero__points li {
+			padding: 5px 9px;
+			font-size: 9px;
+		}
+
+		.hero__rates {
+			gap: 8px;
+			margin-top: 12px;
+		}
+
+		.hero__rates > div {
+			flex: 1;
+			gap: 7px;
+			min-width: 0;
+			padding: 10px 12px;
+		}
+
+		.hero__rates strong {
+			font-size: 20px;
+		}
+
+		.hero__actions {
+			gap: 8px;
+			margin-top: 14px;
+		}
+
+		.hero__actions .button {
+			flex: 1;
+			min-width: 0;
+			min-height: 48px;
+			padding: 11px 16px;
+			font-size: 12px;
+		}
+
+		.hero__scroll {
+			display: none;
+		}
+
+		.hero__decor--one {
+			top: 22px;
+			right: -15px;
+			font-size: 82px;
+		}
+
+		.hero__decor--two {
+			display: none;
+		}
+
+		.campaigns__heading {
+			display: block;
+			margin-bottom: 28px;
+		}
+
+		.campaigns__heading h2 {
+			font-size: 26px;
+		}
+
+		.campaign-grid {
+			grid-template-columns: 1fr;
+			gap: 12px;
+		}
+
+		.campaign-card {
+			min-height: 145px;
+			padding: 24px;
+		}
+
+		.campaign-card h3 {
+			font-size: 22px;
+		}
+
+		.concept__inner {
+			gap: 52px;
+		}
+
+		.concept__visual {
+			width: 100%;
+			padding: 0 18px 20px 0;
+		}
+
+		.concept__visual img {
+			height: 390px;
+			border-radius: 100px 18px 100px 18px;
+		}
+
+		.concept__image-label {
+			right: -5px;
+			bottom: 47px;
+			padding: 11px 17px;
+			font-size: 10px;
+		}
+
+		.concept__copy .section-heading {
+			margin-bottom: 22px;
+		}
+
+		.concept__copy > p {
+			font-size: 12px;
+		}
+
+		.room-grid,
+		.facility-grid,
+		.benefit-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.room-grid {
+			gap: 18px;
+		}
+
+		.room-card__image {
+			height: 235px;
+		}
+
+		.room-card__body {
+			padding: 22px 20px 24px;
+		}
+
+		.room-card__title h3 {
+			font-size: 20px;
+		}
+
+		.room-card__price strong {
+			font-size: 16px;
+		}
+
+		.price-panel {
+			padding: 8px 8px 22px;
+		}
+
+		.price-tabs span {
+			padding: 11px 5px;
+			font-size: 10px;
+		}
+
+		.price table {
+			min-width: 430px;
+		}
+
+		.price th,
+		.price td {
+			padding: 14px 10px;
+		}
+
+		.price-panel__note {
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 10px;
+			margin: 20px 10px 0;
+		}
+
+		.facility-grid {
+			gap: 38px;
+		}
+
+		.facility-card__image {
+			height: 230px;
+		}
+
+		.flow-list {
+			grid-template-columns: 1fr;
+			gap: 10px;
+		}
+
+		.flow-list li {
+			display: grid;
+			grid-template-columns: 74px 1fr;
+			align-items: center;
+			min-height: 0;
+			padding: 24px 22px;
+			text-align: left;
+		}
+
+		.flow-list__icon {
+			grid-row: 1 / 3;
+			width: 58px;
+			height: 58px;
+			margin: 0;
+		}
+
+		.flow-list__icon::before {
+			top: 17px;
+			left: 16px;
+		}
+
+		.flow-list__icon::after {
+			top: 38px;
+			left: 23px;
+		}
+
+		.flow-list h3 {
+			align-self: end;
+			margin: 0;
+		}
+
+		.flow-list p {
+			align-self: start;
+		}
+
+		.flow-list__number {
+			top: 8px;
+			left: auto;
+			right: 14px;
+		}
+
+		.member__intro {
+			gap: 42px;
+			margin-bottom: 48px;
+		}
+
+		.member-card-art {
+			width: 280px;
+			height: 165px;
+			margin-inline: auto;
+			padding: 27px;
+		}
+
+		.member-card-art strong {
+			font-size: 20px;
+		}
+
+		.benefit-grid article {
+			min-height: 150px;
+			padding: 26px 24px 24px 70px;
+		}
+
+		.benefit-grid article > span {
+			top: 27px;
+			left: 23px;
+		}
+
+		.food-card {
+			display: block;
+		}
+
+		.food-card img {
+			height: 230px;
+		}
+
+		.access-card__image {
+			height: 250px;
+		}
+
+		.access-card__info {
+			padding: 34px 24px;
+		}
+
+		.access-card dl > div {
+			grid-template-columns: 1fr;
+			gap: 3px;
+		}
+
+		.access-card .button {
+			width: 100%;
+		}
+
+		.faq-list summary {
+			gap: 12px;
+			padding: 20px 42px 20px 0;
+			font-size: 12px;
+		}
+
+		.faq-list summary > span,
+		.faq-list__answer > span {
+			width: 28px;
+			height: 28px;
+			font-size: 10px;
+		}
+
+		.faq-list__answer {
+			gap: 12px;
+			padding: 0 0 22px;
+		}
+
+		.faq-list__answer p {
+			flex: 1;
+		}
+
+		.closing {
+			padding-block: 80px;
+		}
+
+		.closing__facts {
+			grid-template-columns: 1fr 1fr;
+			gap: 8px;
+			margin-top: 28px;
+		}
+
+		.closing__facts span {
+			display: flex;
+			flex-direction: column;
+			padding: 10px 6px;
+			font-size: 9px;
+		}
+
+		.closing__facts strong {
+			font-size: 13px;
+		}
+
+		.closing__actions {
+			flex-direction: column;
+			gap: 9px;
+		}
+
+		.closing__actions .button {
+			width: 100%;
+		}
+
+		.site-footer {
+			padding-top: 50px;
+		}
+
+		.site-footer__main {
+			grid-template-columns: 1fr;
+			gap: 35px;
+		}
+
+		.logo--footer {
+			align-items: flex-start;
+		}
+
+		.site-footer nav {
+			gap: 12px 24px;
+		}
+
+		.site-footer__contact {
+			grid-column: auto;
+		}
+
+		.site-footer__bottom {
+			margin-top: 35px;
+		}
+
+		.mobile-reserve {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			z-index: 90;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 12px;
+			width: 100%;
+			height: 67px;
+			border-top: 1px solid rgba(255, 255, 255, 0.5);
+			background: linear-gradient(90deg, var(--pink-dark), #f56892);
+			box-shadow: 0 -8px 22px rgba(88, 36, 52, 0.15);
+			color: var(--white);
+		}
+
+		.mobile-reserve span {
+			font-size: 13px;
+			font-weight: 700;
+		}
+
+		.mobile-reserve strong {
+			padding-left: 12px;
+			border-left: 1px solid rgba(255, 255, 255, 0.5);
+			font-size: 8px;
+			letter-spacing: 0.12em;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+
+		*,
+		*::before,
+		*::after {
+			scroll-behavior: auto !important;
+			transition-duration: 0.01ms !important;
+		}
+	}
+</style>
