@@ -2,6 +2,11 @@
 const imageUrl = (id: string, width = 1200) =>
 	`https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=85`;
 
+const address = '〒000-0000 ○○県○○市ローズ町3-5-3';
+const mapQuery = encodeURIComponent(address);
+const mapEmbedUrl = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
+const mapLinkUrl = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
+
 const navItems = [
 	{ label: '客室', href: '#rooms' },
 	{ label: '料金', href: '#price' },
@@ -409,12 +414,14 @@ const faqs = [
 						<p>街の近くで、日常から少しだけ離れた場所。</p>
 					</div>
 					<div class="access-card">
-						<div class="access-card__image">
-							<img
-								src={imageUrl('photo-1566073771259-6a8506099945')}
-								alt="Hotel Rosemariの外観イメージ"
+						<div class="access-card__map">
+							<iframe
+								src={mapEmbedUrl}
+								title={`Hotel Rosemari周辺のGoogleマップ（${address}）`}
 								loading="lazy"
-							/>
+								referrerpolicy="no-referrer-when-downgrade"
+								allowfullscreen
+							></iframe>
 						</div>
 						<div class="access-card__info">
 							<p class="access-card__name">HOTEL <strong>Rosemari</strong></p>
@@ -424,7 +431,7 @@ const faqs = [
 								<div><dt>車でのアクセス</dt><dd>○○ICより約3分</dd></div>
 								<div><dt>駐車場</dt><dd>60台（ハイルーフ可）</dd></div>
 							</dl>
-							<a class="button button--teal" href="https://maps.google.com" target="_blank" rel="noreferrer">Googleマップで見る</a>
+							<a class="button button--teal" href={mapLinkUrl} target="_blank" rel="noreferrer">Googleマップで見る</a>
 						</div>
 					</div>
 				</div>
@@ -1620,9 +1627,15 @@ const faqs = [
 		overflow: hidden;
 	}
 
-	.access-card__image img {
+	.access-card__map {
+		min-height: 470px;
+	}
+
+	.access-card__map iframe {
+		display: block;
+		width: 100%;
 		height: 100%;
-		object-fit: cover;
+		border: 0;
 	}
 
 	.access-card__info {
@@ -2035,8 +2048,9 @@ const faqs = [
 			grid-template-columns: 1fr;
 		}
 
-		.access-card__image {
+		.access-card__map {
 			height: 390px;
+			min-height: 0;
 		}
 
 		.closing__facts {
@@ -2352,7 +2366,7 @@ const faqs = [
 			height: 230px;
 		}
 
-		.access-card__image {
+		.access-card__map {
 			height: 250px;
 		}
 
