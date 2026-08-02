@@ -101,13 +101,6 @@ const flowSteps = [
 	{ number: '04', title: 'ご精算', text: 'お帰りの際に自動精算機でお支払いください。' },
 ];
 
-const benefits = [
-	{ title: 'いつでも 5〜10% OFF', text: '休憩も宿泊も、メンバー価格でご利用いただけます。' },
-	{ title: 'ウェルカムドリンク', text: 'お好きなドリンクをお一人様一杯サービス。' },
-	{ title: 'ポイントが貯まる', text: 'ご利用ごとにポイント付与。次回のお会計に使えます。' },
-	{ title: '記念日プレゼント', text: '誕生日や特別な日に、ささやかなギフトをご用意。' },
-];
-
 const foods = [
 	{
 		title: 'シェフのおすすめ',
@@ -386,26 +379,6 @@ const faqs = [
 							</li>
 						))}
 					</ol>
-				</div>
-			</section>
-
-			<section class="section member" id="member">
-				<div class="container container--narrow">
-					<div class="member__intro">
-						<div class="section-heading section-heading--left">
-							<p class="eyebrow">MEMBERSHIP</p>
-							<h2>使うほど、もっと嬉しい。</h2>
-							<p>入会費・年会費は無料。お部屋の端末から、その日すぐにご登録いただけます。</p>
-						</div>
-						<div class="member-card-art" aria-hidden="true">
-							<span>ROSEMARI</span><strong>MEMBER CARD</strong><small>for our lovely guests</small>
-						</div>
-					</div>
-					<div class="benefit-grid">
-						{benefits.map((benefit, index) => (
-							<article><span>0{index + 1}</span><h3>{benefit.title}</h3><p>{benefit.text}</p></article>
-						))}
-					</div>
 				</div>
 			</section>
 
@@ -1583,108 +1556,6 @@ const faqs = [
 		line-height: 1.8;
 	}
 
-	.member {
-		background:
-			radial-gradient(circle at 85% 20%, rgba(37, 184, 173, 0.1) 0 6px, transparent 7px),
-			linear-gradient(125deg, #fff8fa 0%, #f4fffd 100%);
-	}
-
-	.member__intro {
-		display: grid;
-		grid-template-columns: 1fr 390px;
-		align-items: center;
-		gap: 80px;
-		margin-bottom: 65px;
-	}
-
-	.member__intro .section-heading {
-		margin-bottom: 0;
-	}
-
-	.member-card-art {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		width: 330px;
-		height: 190px;
-		margin: auto;
-		padding: 34px;
-		border: 1px solid rgba(255, 255, 255, 0.75);
-		border-radius: 22px;
-		background: linear-gradient(135deg, #ff7fa4, #ed4679 70%, #df3468);
-		box-shadow: 0 25px 50px rgba(218, 52, 104, 0.24);
-		color: var(--white);
-		transform: rotate(-5deg);
-	}
-
-	.member-card-art::after {
-		position: absolute;
-		top: 24px;
-		right: 27px;
-		content: '♡';
-		font-family: serif;
-		font-size: 42px;
-	}
-
-	.member-card-art span {
-		font-size: 10px;
-		font-weight: 700;
-		letter-spacing: 0.2em;
-	}
-
-	.member-card-art strong {
-		margin: 6px 0;
-		font-size: 24px;
-		letter-spacing: 0.08em;
-	}
-
-	.member-card-art small {
-		font-family: 'Noto Sans JP', sans-serif;
-		font-size: 10px;
-	}
-
-	.benefit-grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 16px;
-	}
-
-	.benefit-grid article {
-		position: relative;
-		min-height: 175px;
-		padding: 30px 34px 28px 78px;
-		border: 1px solid rgba(236, 223, 225, 0.72);
-		border-radius: var(--radius-md);
-		background: rgba(255, 255, 255, 0.84);
-	}
-
-	.benefit-grid article > span {
-		position: absolute;
-		top: 32px;
-		left: 28px;
-		display: grid;
-		width: 34px;
-		height: 34px;
-		border-radius: 50%;
-		background: var(--pink);
-		color: var(--white);
-		font-size: 10px;
-		font-weight: 700;
-		place-items: center;
-	}
-
-	.benefit-grid h3 {
-		margin: 0 0 7px;
-		font-size: 16px;
-	}
-
-	.benefit-grid p {
-		margin: 0;
-		color: var(--muted);
-		font-size: 11px;
-	}
-
 	.food {
 		background: var(--white);
 	}
@@ -2167,15 +2038,6 @@ const faqs = [
 			display: none;
 		}
 
-		.member__intro {
-			grid-template-columns: 1fr;
-			gap: 50px;
-		}
-
-		.member-card-art {
-			margin-left: 40px;
-		}
-
 		.food-grid {
 			grid-template-columns: 1fr;
 		}
@@ -2400,8 +2262,7 @@ const faqs = [
 		}
 
 		.room-grid,
-		.facility-grid,
-		.benefit-grid {
+		.facility-grid {
 			grid-template-columns: 1fr;
 		}
 
@@ -2502,32 +2363,6 @@ const faqs = [
 			top: 8px;
 			left: auto;
 			right: 14px;
-		}
-
-		.member__intro {
-			gap: 42px;
-			margin-bottom: 48px;
-		}
-
-		.member-card-art {
-			width: 280px;
-			height: 165px;
-			margin-inline: auto;
-			padding: 27px;
-		}
-
-		.member-card-art strong {
-			font-size: 20px;
-		}
-
-		.benefit-grid article {
-			min-height: 150px;
-			padding: 26px 24px 24px 70px;
-		}
-
-		.benefit-grid article > span {
-			top: 27px;
-			left: 23px;
 		}
 
 		.food-card {
