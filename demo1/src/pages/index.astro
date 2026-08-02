@@ -636,6 +636,17 @@ const faqs = [
 		text-align: left;
 	}
 
+	/* The homepage prioritizes the practical information found on hotel sites. */
+	.concept,
+	.flow {
+		display: none;
+	}
+
+	.section-heading > .eyebrow {
+		color: var(--muted);
+		letter-spacing: 0.14em;
+	}
+
 	.section-heading h2,
 	.campaigns__heading h2,
 	.closing h2 {
@@ -1624,21 +1635,21 @@ const faqs = [
 		height: 190px;
 		margin: auto;
 		padding: 34px;
-		border: 1px solid rgba(255, 255, 255, 0.75);
-		border-radius: 22px;
-		background: linear-gradient(135deg, #ff7fa4, #ed4679 70%, #df3468);
-		box-shadow: 0 25px 50px rgba(218, 52, 104, 0.24);
+		border: 1px solid rgba(255, 255, 255, 0.28);
+		border-radius: var(--radius-md);
+		background: var(--ink);
+		box-shadow: var(--shadow);
 		color: var(--white);
-		transform: rotate(-5deg);
 	}
 
 	.member-card-art::after {
 		position: absolute;
 		top: 24px;
 		right: 27px;
-		content: '♡';
+		content: 'ROSEMARI';
 		font-family: serif;
-		font-size: 42px;
+		font-size: 9px;
+		letter-spacing: 0.18em;
 	}
 
 	.member-card-art span {
@@ -1666,11 +1677,12 @@ const faqs = [
 
 	.benefit-grid article {
 		position: relative;
-		min-height: 175px;
-		padding: 30px 34px 28px 78px;
-		border: 1px solid rgba(236, 223, 225, 0.72);
-		border-radius: var(--radius-md);
-		background: rgba(255, 255, 255, 0.84);
+		min-height: 140px;
+		padding: 24px 28px 22px 68px;
+		border: 0;
+		border-top: 1px solid var(--line);
+		border-radius: 0;
+		background: transparent;
 	}
 
 	.benefit-grid article > span {
