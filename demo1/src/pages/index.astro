@@ -237,7 +237,6 @@ const faqs = [
 				<div class="hero__veil"></div>
 				<div class="hero__content container">
 					<div class="hero__copy">
-						<p class="eyebrow">JUST THE TWO OF US</p>
 						<h1><span class="hero__title-line">ふたりの時間を、</span><br /><em>もっと自由に。</em></h1>
 						<p class="hero__lead">日常を少しだけ離れて。誰にも急かされない、<br />ふたりだけの心ほどける時間をお過ごしください。</p>
 
@@ -268,7 +267,6 @@ const faqs = [
 			<section class="campaigns section section--compact" id="campaigns">
 				<div class="container">
 					<div class="campaigns__heading">
-						<p class="eyebrow">SPECIAL OFFERS</p>
 						<h2>今だけの、お得なお知らせ</h2>
 					</div>
 					<div class="campaign-grid">
@@ -295,7 +293,6 @@ const faqs = [
 					</div>
 					<div class="concept__copy">
 						<div class="section-heading section-heading--left">
-							<p class="eyebrow">CONCEPT</p>
 							<h2>日常を忘れて、<br />ふたりだけの特別な時間を。</h2>
 						</div>
 						<p>ラグジュアリーでありながら、肩肘を張らずに過ごせる場所。ローズマリは、ふたりの距離が自然と近づく居心地を大切にしています。</p>
@@ -308,7 +305,6 @@ const faqs = [
 			<section class="section rooms" id="rooms">
 				<div class="container">
 					<div class="section-heading">
-						<p class="eyebrow">ROOMS</p>
 						<h2>お気に入りの一室を</h2>
 						<p>色も、設えも、過ごし方も。個性の異なるお部屋からお選びください。</p>
 					</div>
@@ -341,7 +337,6 @@ const faqs = [
 			<section class="section price" id="price">
 				<div class="container container--narrow">
 					<div class="section-heading">
-						<p class="eyebrow">PRICE GUIDE</p>
 						<h2>料金案内</h2>
 						<p>わかりやすい料金で、思い立ったときに気軽に。</p>
 					</div>
@@ -372,7 +367,6 @@ const faqs = [
 			<section class="section facilities" id="facilities">
 				<div class="container">
 					<div class="section-heading">
-						<p class="eyebrow">FACILITIES &amp; SERVICE</p>
 						<h2>設備・サービス</h2>
 						<p>手ぶらで訪れても、いつものように寛げるものを揃えました。</p>
 					</div>
@@ -394,7 +388,6 @@ const faqs = [
 			<section class="section flow" id="flow">
 				<div class="container">
 					<div class="section-heading">
-						<p class="eyebrow">HOW TO USE</p>
 						<h2>ご利用の流れ</h2>
 						<p>はじめての方にも、シンプルで分かりやすいシステムです。</p>
 					</div>
@@ -414,7 +407,6 @@ const faqs = [
 			<section class="section food" id="food">
 				<div class="container">
 					<div class="section-heading">
-						<p class="eyebrow">FOOD &amp; ROOM SERVICE</p>
 						<h2>お部屋で楽しむ、とっておき</h2>
 						<p>24時間いつでもオーダーOK。できたてをお部屋までお届けします。</p>
 					</div>
@@ -433,7 +425,6 @@ const faqs = [
 			<section class="section access" id="access">
 				<div class="container container--narrow">
 					<div class="section-heading">
-						<p class="eyebrow">ACCESS</p>
 						<h2>アクセス</h2>
 						<p>街の近くで、日常から少しだけ離れた場所。</p>
 					</div>
@@ -464,7 +455,6 @@ const faqs = [
 			<section class="section faq" id="faq">
 				<div class="container container--narrow">
 					<div class="section-heading">
-						<p class="eyebrow">FREQUENTLY ASKED QUESTIONS</p>
 						<h2>よくあるご質問</h2>
 					</div>
 					<div class="faq-list">
@@ -480,7 +470,6 @@ const faqs = [
 
 			<section class="closing" id="reserve">
 				<div class="container closing__inner">
-					<p class="eyebrow">A NIGHT JUST FOR TWO</p>
 					<h2>今夜、ふたりだけの時間を。</h2>
 					<div class="closing__facts">
 						<span>休憩 <strong>2,980円〜</strong></span>
@@ -618,14 +607,6 @@ const faqs = [
 		padding-block: 88px;
 	}
 
-	.eyebrow {
-		margin: 0 0 12px;
-		color: var(--pink);
-		font-size: 11px;
-		font-weight: 700;
-		letter-spacing: 0.22em;
-		line-height: 1.4;
-	}
 
 	.section-heading {
 		max-width: 680px;
@@ -649,7 +630,7 @@ const faqs = [
 		line-height: 1.45;
 	}
 
-	.section-heading > p:last-child:not(.eyebrow) {
+	.section-heading > p:last-child {
 		margin: 16px 0 0;
 		color: var(--muted);
 	}
@@ -1028,9 +1009,6 @@ const faqs = [
 		margin-bottom: 38px;
 	}
 
-	.campaigns__heading .eyebrow {
-		margin-bottom: 7px;
-	}
 
 	.campaigns__heading h2 {
 		font-size: clamp(27px, 3vw, 38px);
@@ -1775,9 +1753,6 @@ const faqs = [
 		z-index: 1;
 	}
 
-	.closing .eyebrow {
-		color: var(--white);
-	}
 
 	.closing__facts {
 		display: grid;
@@ -2095,7 +2070,7 @@ const faqs = [
 			font-size: 30px;
 		}
 
-		.section-heading > p:last-child:not(.eyebrow) {
+		.section-heading > p:last-child {
 			font-size: 12px;
 		}
 
