@@ -23,12 +23,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
-      - name: Build and upload demo1
-        uses: withastro/action@v6
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
         with:
-          path: demo1
-          package-manager: pnpm@latest
+          version: 10
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
           node-version: 22
+          cache: pnpm
+          cache-dependency-path: demo1/pnpm-lock.yaml
+      - name: Install dependencies
+        run: pnpm --dir demo1 install --frozen-lockfile
+      - name: Build demo1
+        run: pnpm --dir demo1 run build
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: demo1/dist
 
   deploy:
     environment:
